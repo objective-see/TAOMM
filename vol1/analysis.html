@@ -1,0 +1,375 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#">
+
+<head>
+<meta charset="UTF-8">
+
+<title>The Art Of Mac Malware: Analysis</title>
+<script src="../js/analytics.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://taomm.org/images/mainBackground.png" />
+<meta name="twitter:title" content="The Art of Mac Malware" />
+<meta name="twitter:description" content="Volume 0x1: Analysis 🍎 👾 🔬" />
+
+<meta property="og:site_name" content="The Art of Mac Malware"/>
+<meta property="og:title" content="The Art of Mac Malware: Analysis"/>
+<meta property="og:url" content="https://taomm.org/vol1/analysis.html">
+<meta property="og:description" content="Volume 0x1: Analysis 🍎 👾 🔬"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://objective-see.com/images/logoApple.jpg">
+<link rel="logoApple.jpg" type="image/jpg" href="https://objective-see.com/images/logoApple.jpg" />
+
+<meta http-equiv="Cache-Control" content="no-store" />
+
+</head>
+
+<body style="background-image:none; font-family:Consolas;">
+
+<div class="pageContent">
+<h1>The Art Of Mac Malware: <b>Analysis</b></h1>
+<br>
+</div>
+
+
+<div class="row">
+  <div class="column1">
+  
+  	<div class="outline">
+
+      <img style="vertical-align:middle" src="../images/document.png" height="32">
+      <a class="outlineLink" href="https://docs.google.com/document/d/1yTtf8UiG2iiEfLFbgmx6119T3n6ePKjHbx5_2ZnPF_Q/edit?usp=sharing" target="contents">Introduction
+      </a>
+      <div class="more">›</div> 
+
+    </div>
+
+    <div class="outline" style="height: 32px; line-height: 34px; vertical-align: middle;">
+  		
+      <a class="outlineLink" href="https://docs.google.com/document/d/1WGUKIIoVPp4D-EQw4i8XIFfH1Ozsc--65CPldY-FCQE/edit?usp=sharing" target="contents">🍎 Part 0x1: Malware Basics
+      </a>
+      <div class="more">›</div> 
+
+    </div>
+
+    <!-- INFECTION VECTORS -->
+    <a class="outlineLink" href="https://docs.google.com/document/d/1ih2_k-Q63MYSEdIbXsjHpnZ5taZAncYQp1cdjHk9eb0/edit?usp=sharing" target="contents">
+    <div class="outline" style="padding-left: 10px;">   
+      <div class="rowww">
+        <div class="cc ll">
+          <img style="vertical-align:middle" src="../images/document.png" height="32">
+        </div>
+        <div class="cc mm">
+          Infection Vectors
+          <br>
+          <span style="font-size: 12px;">
+            gaining access to macOS systems
+          </span>
+        </div>
+        <div class="cc rr">
+          <div class="more">›</div> 
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <!-- PERSISTENCE -->
+    <a class="outlineLink" href="https://docs.google.com/document/d/1-DJg06QmqqzqfXu004Mx74gOuILIs2r-460yy9tgwZg/edit?usp=sharing" target="contents">
+    <div class="outline" style="padding-left: 10px;">   
+      <div class="rowww">
+        <div class="cc ll">
+          <img style="vertical-align:middle" src="../images/document.png" height="32">
+        </div>
+        <div class="cc mm">
+          Persistence
+          <br>
+          <span style="font-size: 12px;">
+            maintaining access across reboots
+          </span>
+        </div>
+        <div class="cc rr">
+          <div class="more">›</div> 
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <!-- CAPABILITIES -->
+    <a class="outlineLink" href="https://docs.google.com/document/d/1SA-2jM8vOuTGJssedexXw2AXiLEecROyh7gh6fWo5UY/edit?usp=sharing" target="contents">
+    <div class="outline" style="padding-left: 10px;">   
+      <div class="rowww">
+        <div class="cc ll">
+          <img style="vertical-align:middle" src="../images/document.png" height="32">
+        </div>
+        <div class="cc mm">
+          Capabilities
+          <br>
+          <span style="font-size: 12px;">
+            malicious objectives and payloads
+          </span>
+        </div>
+        <div class="cc rr">
+          <div class="more">›</div> 
+        </div>
+      </div>
+    </div>
+    </a>
+
+  <div class="outline" style="height: 32px; line-height: 34px; vertical-align: middle;">
+        
+      <a class="outlineLink" href="https://docs.google.com/document/d/1Hd2h6nkePHIVbDzgbVnY7UBwR6d_LsTwdBpkqfVRCwI/edit?usp=sharing" target="contents">🍎 Part 0x2: Malware Analysis</a>
+      <div class="more">›</div> 
+
+  </div>
+
+  <!-- STATIC ANALYSIS (INTRO) -->
+  <a class="outlineLink" href="https://docs.google.com/document/d/1X9d7zGcKnuxnkCLTSJzyUjJGIPwIAU_dbYxPC1fvJxo/edit?usp=sharing" target="contents">
+  <div class="outline" style="padding-left: 10px;">   
+    <div class="rowww">
+      <div class="cc ll">
+        <img style="vertical-align:middle" src="../images/document.png" height="32">
+      </div>
+      <div class="cc mm">
+        Static Analysis
+        <br>
+        <span style="font-size: 12px;">
+          an introduction to static analysis
+        </span>
+      </div>
+      <div class="cc rr">
+        <div class="more">›</div> 
+      </div>
+    </div>
+  </div>
+  </a>
+
+  <!-- STATIC ANALYSIS (NON-BINARY FILES) -->
+  <a class="outlineLink" href="https://docs.google.com/document/d/1auiQ4YVVpR0SLr3Y1qnz7d2JtyL2C82wDZaXDpoIaHU/edit?usp=sharing" target="contents">
+  <div class="outline" style="padding-left: 30px;">   
+    <div class="rowww">
+      <div class="cc ll">
+        <img style="vertical-align:middle" src="../images/document.png" height="32">
+      </div>
+      <div class="cc mm">
+        Non-Binary Analysis
+        <br>
+        <span style="font-size: 12px;">
+        analyzing non-binary files
+        </span>
+      </div>
+      <div class="cc rr">
+        <div class="more">›</div> 
+      </div>
+    </div>
+  </div>
+  </a>
+
+  <!-- STATIC ANALYSIS (MACH-O: TRIAGE) -->
+  <a class="outlineLink" href="https://docs.google.com/document/d/18gS2wal1tP2Vxt5AIUou-VRXszYj92BG4UEoPSxLlpk/edit?usp=sharing" target="contents">
+    <div class="outline" style="padding-left: 30px;">   
+      <div class="rowww">
+        <div class="cc ll">
+          <img style="vertical-align:middle" src="../images/document.png" height="32">
+        </div>
+        <div class="cc mm">
+          Binary Triage
+          <br>
+          <span style="font-size: 12px;">
+          precursory analysis of binaries
+          </span>
+        </div>
+        <div class="cc rr">
+          <div class="more">›</div> 
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <!-- STATIC ANALYSIS (MACH-O: DIASM/DECOMPILE) -->
+  <a class="outlineLink" href="https://docs.google.com/document/d/1b_mirYkpP6EgYv2hlwcyRi9sjt0TRNp3PQ3EuricmF0/edit?usp=sharing" target="contents">
+    <div class="outline" style="padding-left: 30px;">   
+      <div class="rowww">
+        <div class="cc ll">
+          <img style="vertical-align:middle" src="../images/document.png" height="32">
+        </div>
+        <div class="cc mm">
+          Disassembling &amp; Decompiling
+          <br>
+          <span style="font-size: 12px;">
+          assembly-level analysis of binaries
+          </span>
+        </div>
+        <div class="cc rr">
+          <div class="more">›</div> 
+        </div>
+      </div>
+    </div>
+  </a>
+  
+
+  <!-- DYNAMIC ANALYSIS (INTRO) -->
+  <a class="outlineLink" href="https://docs.google.com/document/d/1SR3IWVuF1CvnjsSuj6a3PFsbJsYM6v9a5y6FedbrVoM/edit?usp=sharing" target="contents">
+  <div class="outline" style="padding-left: 10px;">   
+    <div class="rowww">
+      <div class="cc ll">
+        <img style="vertical-align:middle" src="../images/document.png" height="32">
+      </div>
+      <div class="cc mm">
+        Dynamic Analysis
+        <br>
+        <span style="font-size: 12px;">
+          an introduction to dynamic analysis
+        </span>
+      </div>
+      <div class="cc rr">
+        <div class="more">›</div> 
+      </div>
+    </div>
+  </div>
+  </a>
+ 
+
+  <!-- DYNAMIC ANALYSIS (MONITORING) -->
+  <a class="outlineLink" href="https://docs.google.com/document/d/14HltnvPEUO9DxjDAv72WnX5aCo1CkbVxQrUqjbaI8q4/edit?usp=sharing" target="contents">
+    <div class="outline" style="padding-left: 30px;">   
+      <div class="rowww">
+        <div class="cc ll">
+          <img style="vertical-align:middle" src="../images/document.png" height="32">
+        </div>
+        <div class="cc mm">
+          Monitoring Tools
+          <br>
+          <span style="font-size: 12px;">
+          process, file, & networking monitoring
+          </span>
+        </div>
+        <div class="cc rr">
+          <div class="more">›</div> 
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <!-- DYNAMIC ANALYSIS (DEBUGGING) -->
+  <a class="outlineLink" href="https://docs.google.com/document/d/1xjdNWcPtqzxMm4pVEBAuQ81Lrd-gzd1DN_IngdxalaM/edit?usp=sharing" target="contents">
+    <div class="outline" style="padding-left: 30px;">   
+      <div class="rowww">
+        <div class="cc ll">
+          <img style="vertical-align:middle" src="../images/document.png" height="32">
+        </div>
+        <div class="cc mm">
+          Debugging
+          <br>
+          <span style="font-size: 12px;">
+          dynamic inspection via a debugger
+          </span>
+        </div>
+        <div class="cc rr">
+          <div class="more">›</div> 
+        </div>
+      </div>
+    </div>
+  </a>
+
+
+  <!-- ANTI-ANALYSIS -->
+  <a class="outlineLink" href="https://docs.google.com/document/d/18QDsGQWptDryqb8_oBDkm-YaeWn4Ma4Z3nxGCwAo3WA/edit?usp=sharing" target="contents">
+  <div class="outline" style="padding-left: 10px;">   
+    <div class="rowww">
+      <div class="cc ll">
+        <img style="vertical-align:middle" src="../images/document.png" height="32">
+      </div>
+      <div class="cc mm">
+        Anti-Analysis
+        <br>
+        <span style="font-size: 12px;">
+        overcoming anti-analysis techniques
+        </span>
+      </div>
+      <div class="cc rr">
+        <div class="more">›</div> 
+      </div>
+    </div>
+  </div>
+  </a>
+
+
+  <div class="outline" style="height: 32px; line-height: 34px; vertical-align: middle;">
+      
+      <a class="outlineLink" href="https://docs.google.com/document/d/17_grotOkkwFO2fNrJtvcXq4rlCKow3K9RzSbvKBdUSs/edit?usp=sharing" target="contents">🍎 Part 0x3: Case Study
+      </a>
+      <div class="more">›</div> 
+
+  </div>
+
+  <!-- CASE STUDY (OSX.EVILQUEST) -->
+  <a class="outlineLink" href="https://docs.google.com/document/d/144qibzMaHNQVQ9xwvidqxBggedmcAH-hNvfixK-zRy8/edit?usp=sharing" target="contents">
+  <div class="outline" style="padding-left: 10px;">   
+    <div class="rowww">
+      <div class="cc ll">
+        <img style="vertical-align:middle" src="../images/document.png" height="32">
+      </div>
+      <div class="cc mm">
+        Analyzing OSX.EvilQuest
+        <br>
+        <span style="font-size: 12px;">
+        comprehensively analyzing a macOS virus
+        </span>
+      </div>
+      <div class="cc rr">
+        <div class="more">›</div> 
+      </div>
+    </div>
+  </div>
+  </a>
+
+  <br>
+  <br>
+  <div style="border-bottom: 1px solid #ddd; padding-top: 10px; padding-bottom: 10px;">
+        <img style="vertical-align:middle" src="../images/glossary.png" height="32">
+        <span style="vertical-align:middle"><a class="outlineLink" href="https://docs.google.com/document/d/1GfuUMaPCxLt3dLCt6cF08q-ZKt3TPXeDHpT4-QO_SQo/edit?usp=sharing" target="contents">Glossary</a></span>
+        <div style="float: right; line-height: 35px;" > > </div> 
+  </div>
+
+	<div style="border-bottom: 1px solid #ddd; padding-top: 10px; padding-bottom: 10px;">
+  			<img style="vertical-align:middle" src="../images/resources.png" height="32">
+  			<span style="vertical-align:middle"><a class="outlineLink" href="https://docs.google.com/document/d/1Z11BQwwOrrV01o6wiM_auPyf1rPXCjmrPJ-1x65q5yk/edit?usp=sharing" target="contents">Other Resources</a></span>
+  			<div style="float: right; line-height: 35px;" > > </div> 
+	</div>
+
+  	<br>
+  </div>
+
+
+  <!-- CONTENT (GOOGLE DOC) -->
+  <div class="column2">
+  	
+  	<div style="border-radius: 10px; width: 100%; overflow: hidden;">
+      <iframe name="contents" width="100%" height="100%" src="https://docs.google.com/document/d/1yTtf8UiG2iiEfLFbgmx6119T3n6ePKjHbx5_2ZnPF_Q/edit?usp=sharing"></iframe>
+  	</div>
+
+  </div>
+
+</div>
+
+
+
+<!--
+<nav role="footer">
+<ul>
+    <li class="copyright">&copy; 2018 objective-see llc</li>
+    
+    <li><a href="mailto:contact@objective-see.com" class="menubutton icon"><span class="ss-icon" style="overflow-y: hidden;">&#x2709;</span></a></li>
+    <li><a href="https://twitter.com/objective_see" class="menubutton icon"><span class="ss-icon">&#xF611;</span></a></li>
+
+    <li class="copyright" style="float: right; padding-left: 20px;" ><a class="inlineLink" href="http://confcodeofconduct.com/">Code of Conduct</a></li>
+
+</ul>
+</nav>
+-->
+
+</body>
+</html>
