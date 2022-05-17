@@ -17,6 +17,16 @@
     });
 </script> 
 
+<script type="text/javascript">
+    $( document ).ajaxStart(function() {
+        $( "#loading" ).show();
+    });
+    $( document ).ajaxStop(function() {
+        $( "#loader" ).delay(700).fadeOut(100)
+        $( "#loading" ).delay(700).fadeOut(500)
+    });
+</script>
+
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@objective_see" />
 <meta name="twitter:title" content="The Art of Mac Malware" />
@@ -32,6 +42,12 @@
 </head>
 
 <body>
+
+<div id="loading"> 
+  <div id="loader">
+        <img src="/images/loading.gif">
+  </div>
+</div>
 
 <!-- Header/Menu -->
 <div id="header"></div>
