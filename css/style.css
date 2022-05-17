@@ -1003,7 +1003,7 @@ nav[role="footer"] .archives
 	background-color: white; 
 	display: block; 
 	z-index: 999999;
-
+	visibility: hidden;
 }
 
 #loader {
