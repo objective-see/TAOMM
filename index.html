@@ -7,8 +7,10 @@
 
 <meta name="google-site-verification" content="EFHbaJUZa6mOaOGQbFJ2xa32xu_SVhTYqvm4JHfA5dg" />
 
-<script src="js/analytics.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="js/loader.js"></script>
+<script src="js/analytics.js"></script>
 
 <script> 
     $(function(){
@@ -16,16 +18,6 @@
       $("#footer").load("footer.html"); 
     });
 </script> 
-
-<script type="text/javascript">
-    $( document ).ajaxStart(function() {
-        $( "#loading" ).show();
-    });
-    $( document ).ajaxStop(function() {
-        $( "#loader" ).delay(700).fadeOut(100)
-        $( "#loading" ).delay(700).fadeOut(500)
-    });
-</script>
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@objective_see" />
