@@ -6,6 +6,35 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
+<script type="text/javascript">
+$( document ).ajaxStart(function() {
+  $( "#loading" ).show();
+});
+
+$( document ).ajaxStop(function() {
+  $( "#loading" ).delay(700).fadeOut(500)
+});
+
+</script>
+
+<div id="loading" 
+     style="position:absolute; 
+                  height:100%; 
+                  width:100%; 
+                  background-color: white;
+                  z-index: 999999;
+                  display: block">
+
+    <div style="position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);">
+        <img src="/images/loading.gif">
+    </div>
+
+</div>
+
+
 <nav role="main">
 <ul>
     <!-- logo, left -->
