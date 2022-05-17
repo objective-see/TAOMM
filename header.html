@@ -14,26 +14,17 @@ $( document ).ajaxStart(function() {
 $( document ).ajaxStop(function() {
   $( "#loading" ).delay(700).fadeOut(500)
 });
-
 </script>
 
 <div id="loading" 
-     style="position:absolute; 
-                  height:100%; 
-                  width:100%; 
-                  background-color: white;
-                  z-index: 999999;
-                  display: block">
+     style="position:absolute; height:100%; width:100%; 
+            background-color: white; display: block; z-index: 999999;">
 
-    <div style="position: fixed;
-        top: 50%;
-        left: 50%;
+    <div style="position: fixed; top: 50%; left: 50%;
         transform: translate(-50%, -50%);">
         <img src="/images/loading.gif">
     </div>
-
 </div>
-
 
 <nav role="main">
 <ul>
