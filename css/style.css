@@ -996,13 +996,14 @@ nav[role="footer"] .archives
 }
 
 #loading {
-	position:absolute; 
+	position:fixed; 
 	height:100%; 
 	width:100%; 
+	top:0px;
+  left:0px;
 	background-color: white; 
 	display: block; 
 	z-index: 999999;
-	visibility: hidden;
 }
 
 #loader {
@@ -1010,6 +1011,7 @@ nav[role="footer"] .archives
 	top: 50%; 
 	left: 50%; 
 	transform: translate(-50%, -50%);
+	visibility: hidden;
 }
 
 
