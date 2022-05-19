@@ -995,25 +995,6 @@ nav[role="footer"] .archives
   display: none;
 }
 
-#loading {
-	position:fixed; 
-	height:100%; 
-	width:100%; 
-	top:0px;
-  left:0px;
-	background-color: white; 
-	display: block; 
-	z-index: 999999;
-}
-
-#loader {
-	position: fixed; 
-	top: 50%; 
-	left: 50%; 
-	transform: translate(-50%, -50%);
-	visibility: hidden;
-}
-
 
 @keyframes pulse {
   0% { transform: scale(1); }
