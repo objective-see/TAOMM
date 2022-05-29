@@ -172,7 +172,7 @@ blockquote
   vertical-align: middle;
   white-space: nowrap;
   word-wrap: break-word;
-  margin-top: 25px; 
+  margin-top: 10px; 
   margin-left: 20px; 
   margin-right: 10px;
 }
@@ -251,7 +251,7 @@ nav[role="main"]
 	height: 75px;
 
 	/* bg color */
-	background-color:white;
+	background-color:#E8E8E8;
 }
 
 /* (fixed) footer */
@@ -301,6 +301,15 @@ nav[role="main"] .menubutton.logo
 	float: left;
 }
 
+div.subHeader
+{
+	text-align: center;
+	font-family: 'Exo 2'; 
+	font-weight: 600; 
+	font-size: 34px; 
+	background: linear-gradient(180deg, #E8E8E8 50%, white 50%);
+}
+
 div.logo
 {
 	float: left; 
@@ -315,6 +324,7 @@ div.title
 	font-family: 'Exo 2'; 
 	font-weight: 600; 
 	font-size: 34px; 
+	color: black;
 }
 figure.logo {
     display: flex;
@@ -333,8 +343,8 @@ figcaption.logo
 figure.item 
 {
 	display: table;
-  	margin: 0 auto;
-  	padding-top: 17px;
+  margin: 0 auto;
+  padding-top: 0px;
 }
 
 figcaption.item 
@@ -355,9 +365,9 @@ img.item
 img.menuicon
 {
 	width: 30px;
-    height: 30px;
-    opacity: 0.90;
-    vertical-align: middle;
+  height: 30px;
+  opacity: 0.95;
+  vertical-align: middle;
 }
 
 /* non-logo items */
@@ -372,7 +382,7 @@ nav[role="main"] .menubutton:not(.logo)
 	padding-left: 50px;
 
 	/* top padding */
-	padding-top: 27px;
+	padding-top: 10px;
 
 	/* cursor indicates link */
 	cursor: pointer;
@@ -786,14 +796,7 @@ div.logo-title
   animation-iteration-count: 1;
 }
 
-.header
-{
-	text-align: left;
-	border-radius:10px; 
-	padding: 15px;
-	margin-bottom: 15px;
-	background-color: rgba(0,0,0,0.05);
-}
+
 
 .row {
   display: flex;
