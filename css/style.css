@@ -307,7 +307,7 @@ div.subHeader
 	font-family: 'Exo 2'; 
 	font-weight: 600; 
 	font-size: 34px; 
-	background: linear-gradient(180deg, #E8E8E8 50%, white 50%);
+	background: linear-gradient(180deg, #E8E8E8 60%, white 40%);
 }
 
 div.logo
