@@ -1,0 +1,493 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#">
+<head>
+
+<meta charset="UTF-8">
+<title>TAOMM: Volume I: Analysis</title>
+<link rel="shortcut icon" href="images/logo.ico">
+
+<meta name="google-site-verification" content="EFHbaJUZa6mOaOGQbFJ2xa32xu_SVhTYqvm4JHfA5dg" />
+
+<script src="js/analytics.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script> 
+    $(function(){
+      $("#header").load("/header.html"); 
+      $("#footer").load("/footer.html"); 
+    });
+</script> 
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@objective_see" />
+<meta name="twitter:title" content="Objective by the Sea v5.0" />
+<meta name="twitter:description" content="The Mac Security Conference" />
+<meta name="twitter:image" content="https://objectivebythesea.org/v5/images/twitter.png" />
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Objective by the Sea v5.0"/>
+<meta property="og:url" content="https://objectivebythesea.org/v5/index.html">
+<meta property="og:image" content="https://objectivebythesea.org/v5/images/twitter.png">
+<meta property="og:description" content="The Mac Security Conference"/>
+
+</head>
+
+<body>
+
+<!-- Header/Menu -->
+<div id="header"></div>
+    
+<div class="pageContent">
+
+    <figure class="pageHeader">
+    <img src="/images/bookIcon_2x.png" style="height:64px;" />
+        <br>
+        <figcaption class="pageHeader">
+        <span style="">Volume I: Analysis</span>
+        <div class="pageSubHeader"></div>
+    </figcaption>
+    </figure>
+
+    <span class="wrapper" style="text-align: left">
+
+    <br>
+    <span style="font-size:20px;">
+    Starting with introductory topics such as infection vectors, persistence mechanisms, and payloads, this content-packed volume also covers in detail, the tools &amp; techniques needed to comprehensively analyze malware targeting Apple's desktop OS.
+    <br><br>
+    <br><br>
+    </span>
+
+
+    <span class="title">Front Matter</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/FrontMatter.pdf">
+                <img src="/images/cover.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%;">
+            </a>
+            </center>
+            
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            The front matter of the book includes a table of contents, acknowledgements, introduction and a forward (by the noted macOS researcher/author Jonathan Levin).
+            <br><br>
+            <a class="inlineLink" href="pdfs/FrontMatter.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+
+    <span class="title">Part I: Mac Malware Basics</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/Part I.pdf">
+                <img src="/images/vol1/p1.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            Before we dive into advanced malware analysis topics, it is important that you understand the fundamentals of Mac malware.
+            <br><br>
+            In the first part of this book, we'll explore these basics, including: infection vectors, methods of persistence, and capabilities.
+            <br><br>
+            <a class="inlineLink" href="pdfs/Part I.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 1: Infection Vectors</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 1 Infection Vectors.pdf">
+                <img src="/images/vol1/ch1.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            A malware's infection vector is the means by which it gains access to a system. Throughout the years, malware authors have relied on mechanisms ranging from simple social engineering tricks to advanced, remote zero-day exploits to infect Macs. 
+            <br>
+            <br>
+            In this chapter, we'll discuss many of the most common techniques used by Mac malware authors.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 1 Infection Vectors.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 2: Persistence</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 2 Persistence.pdf">
+                <img src="/images/vol1/ch2.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            Once malware has successfully gained access to a system, its next goal is usually to persist. Persistence is the means by which malware installs itself on a system to ensure it will automatically re-execute upon startup, user login, or some other deterministic event. 
+            <br>
+            <br>
+            Though attackers regularly abuse only a small handful of these methods, we'll cover a myriad of surreptitious means by which malware can achieve persistence.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 2 Persistence.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 3: Capabilities</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 3 Capabilities.pdf">
+                <img src="/images/vol1/ch3.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            When analyzing malware, it's often para- mount to understand what happens after a successful infection. In other words, what does the malware actually do? Though the answer to this question will depend on a particular malware's goals, it may include surveying the system, escalating privileges, executing commands, exfiltrating files, ransoming user files, or even mining cryptocurrency. 
+            <br><br>
+            In this chapter, we'll take a detailed look at the capabilities commonly found in Mac malware.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 3 Capabilities.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+
+    <span class="title">Part II: Mac Malware Analysis</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="#">
+                <img src="/images/vol1/p2.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+           <br>
+           Now that you understand Mac malware's infection vectors, persistence mechanisms, and capabilities, let's discuss how you can effectively analyze malicious samples. 
+           <br><br>
+           We’ll cover both static and dynamic approaches:
+           <br><br>
+           <a class="inlineLink" href="pdfs/Part II.pdf">Read Chapter »</a>
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 4: Nonbinary Analysis</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 4 Nonbinary Analysis.pdf">
+                <img src="/images/vol1/ch4.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            This chapter focuses on the static analysis of "nonbinary" file formats, such as packages, disk images, and scripts, that you'll commonly encounter while analyzing Mac malware. 
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 4 Nonbinary Analysis.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 5: Binary Triage</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 5 Binary Triage.pdf">
+                <img src="/images/vol1/ch5.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            In this chapter, we'll
+continue our discussion of static analysis by focusing on
+Apple's native executable file format, the venerable
+Mach object file format (Mach-O). 
+<br><br>
+As the majority of Mac malware is compiled into Mach-Os, all Mac malware analysts should understand the structure of these binaries, as at a minimum, this will allow you to differentiate the benign from the malicious. 
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 5 Binary Triage.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 6: Disassembly and Decompilation</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 6 Disassembling & Decompilation.pdf">
+                <img src="/images/vol1/ch6.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            If you want to comprehensively understand a novel Mac malware specimen, you'll need a foundational understanding of assembly code, as well as an ability to leverage sophisticated binary analysis tools.
+            <br>
+            <br>
+            In this chapter, we'll first discuss assembly language basics and then move on to the static analysis approaches of disassembly and decompilation. We'll conclude by applying these analysis approaches with Hopper, a popular reversing tool capable of reconstructing binary code in a human- readable format. 
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 6 Disassembling & Decompilation.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 7: Dynamic Analysis Tools</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 7 Dynamic Analysis Tools.pdf">
+                <img src="/images/vol1/ch7.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            When analyzing a malicious sample, it may be more efficient to simply execute the item and passively observe its behavior and actions. 
+            <br>
+            <br>
+            This is especially true when malware authors have implemented mechanisms designed specifically to complicate or even thwart static analysis, such as encrypting embedded strings and configuration information or dynamically loading more code at runtime.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 7 Dynamic Analysis Tools.pdf">Read Chapter »</a>
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 8: Debugging</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 8 Debugging.pdf">
+                <img src="/images/vol1/ch8.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            The ultimate dynamic analysis tool is the debugger. A debugger is a program that allows you to execute another program instruction by instruction. At any time, you can examine or modify its registers and memory contents, manipulate control flow, and much more. 
+            <br><br>
+            In this chapter, I'll introduce various debugging concepts by means of the de facto debugger for macOS: LLDB. 
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 8 Debugging.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+
+    <br>
+    <br>
+    <span class="title">Chapter 9: Anti-Analysis</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 9 Anti-Analysis.pdf">
+                <img src="/images/vol1/ch9.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            In the previous chapters, we leveraged both static and dynamic analysis methods to uncover malware's persistence mechanisms, core capabilities, and most closely held secrets.
+Of course, malware authors are not happy about their creations being laid bare for the world to see. Thus, they often seek to complicate analysis by writing anti- analysis logic or other protection schemes. 
+<br><br>
+In this chapter we'll discuss anti-analysis approaches common among macOS malware authors. 
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 9 Anti-Analysis.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <span class="title">Part III: Analyzing EvilQuest</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/Part III.pdf">
+                <img src="/images/vol1/p3.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            It's time to put the universal adage "practice makes perfect" into, well, practice. 
+            <br><br>
+            In Part III of this book, you'll apply all that you've learned in Parts I and II to thoroughly analyze the intriguing Mac malware specimen known as EvilQuest.
+            <br><br>
+            <a class="inlineLink" href="pdfs/Part III.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 10: EvilQuest's Infection, Triage, and Deobfuscation</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 10 EvilQuest's Infection, Triage, and Deobfuscation.pdf">
+                <img src="/images/vol1/ch10.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            EvilQuest is a complex Mac malware specimen. Because it employs anti-analysis logic, a viral persistence mechanism, and insidious payloads, it's practically begging to be analyzed. Let's apply the skills you've gained from this book to
+do just that!
+<br>
+<br>
+This chapter begins our comprehensive analysis of the malware by detail- ing its infection vector, triaging its binary, and identifying its anti-analysis logic.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 10 EvilQuest's Infection, Triage, and Deobfuscation.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 11: EvilQuest's Persistence and Core Functionality</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 11 EvilQuest's Persistence and Core Functionality.pdf">
+                <img src="/images/vol1/ch11.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            Now that we've triaged the EvilQuest specimen and thwarted its anti-analysis logic, we can continue our analysis. 
+            <br>
+            <br>
+            In this chapter we'll detail the malware's methods of persistence, which ensure it is automatically restarted each time an infected system is rebooted. Then we'll dive into the myriad of capabilities supported by this insidious threat.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 11 EvilQuest's Persistence and Core Functionality.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <span class="title">End Matter</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/EndMatter.pdf">
+                <img src="/images/vol1/end.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            The book's end matters contains its index, and more.
+            <br><br>
+            <a class="inlineLink" href="pdfs/EndMatter.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+  
+
+</span>
+
+</div>	
+<br>
+<br>
+<br>
+<br>
+
+<!-- footer -->
+<div id="footer"></div>
+
+</body>
+</html>
