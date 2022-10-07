@@ -50,10 +50,11 @@
 <br>    
 <div class="pageContent">
 
-<br>
-<br>
-
 <span class="wrapper" style="text-align: left;">
+    
+    <center>
+        Read online (for free!) <a class="inlineLink" href="vol1/read.html">Volume I: Analysis</a>.
+    </center>
 
 <!-- BOOKS -->
     <a id="books"></a>
@@ -86,22 +87,22 @@
         </div>
         </li>
         <li class="flex-content">
-            <div style="padding-top: 10px; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:16px;">
+            <div style="padding-top: 10px; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:17px;">
             Defenders must fully understand how malicious software works if they hope to stay ahead of the increasingly sophisticated threats facing Apple products today. The Art of Mac Malware: The Guide to Analyzing Malicious Software is a comprehensive handbook to cracking open these malicious programs and seeing what’s inside.
             <br><br>
             Discover the secrets of nation state backdoors, destructive ransomware, and subversive cryptocurrency miners as you uncover their infection methods, persistence strategies, and insidious capabilities. Then work with and extend foundational reverse-engineering tools to extract and decrypt embedded strings, unpack protected Mach-O malware, and even reconstruct binary code. Next, using a debugger, you’ll execute the malware, instruction by instruction, to discover exactly how it operates. In the book’s final section, you’ll put these lessons into practice by analyzing a complex Mac malware specimen on your own.
+            <br><br>
             </div>
-        
-
+    
             <center>
             <br><br>
-            <button class="menubutton button-2" id="read" role="link" type="button">
+            <button class="menubutton button-2" id="readV1" role="link" type="button">
                 Read Online (for free) »
             </button>
             
             <script>
             (function() {
-              var bookButton = document.getElementById('read');
+              var bookButton = document.getElementById('readV1');
               bookButton.addEventListener('click', function () {
                 window.open('vol1/read.html');
               });
@@ -121,26 +122,19 @@
             })();
             </script>
             </center>
-            
-            
-
         </li>
     </ul>
-
-
-
     <br>
     <br>
     <br>
-    <span class="title">Volume II: TBD</span>
+    <span class="title">Volume II: Detection</span>
     <ul class="flex-container" style="padding-top: 30px;">
         <li class="flex-icon">
-
             <div class="download-link" style="min-width: 350px;">
             <center>
             <a href="#">
                 <img src="images/cover_v2.png" height="256px;" border="0" style="margin-top: 10px; border-radius: 5%;">
-                <h2 class="download-title">Volume II: TBD</h2>
+                <h2 class="download-title">Volume II: Detection</h2>
             </a>
             </center>
             
@@ -149,13 +143,34 @@
         </li>
         <li class="flex-content">
             
-            <br>
-            <!--
-            Starting with introductory topics such as infection vectors, persistence mechanisms, and payloads,
-            this content-packed volume also covers in detail, the tools &amp; techniques needed to comprehensively analyze malware targeting Apple's desktop OS.
+            <div style="padding-top: 10px; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:17px;">
+            Analyzing malware is only half the battle. Detecting malicious code in the first place, is the other essential piece! 
             <br><br>
-            📖 &nbsp;<a class="inlineLink" href="vol1/analysis.html">Read Online</a> &nbsp;<b>/</b>&nbsp; 📥 &nbsp;<a class="inlineLink" href="vol1/pdfs.html">Download PDFs</a>
-            -->
+            Volume I detailed the infection vectors, persistence mechanisms, and internals of Mac malware, providing the reader with comprehensive understanding of, well, what Mac malware "looks like." Now we're ready to discuss exactly how to programmatically detect such malicious code. 
+            <br><br>
+            The second volume of the "The Art of Mac Malware" is a comprehensive resource that covers the programmatic detection of macOS malware code via behavioral-based heuristics.
+            <br><br>
+            Armed with topics and approaches covered in this second volume, Mac malware doesn't stand a chance!
+            </div>
+    
+            <center>
+            <br><br>
+            <button class="menubutton button-2" id="readV2" role="link" type="button">
+                Read Online (for free) »
+            </button>
+            
+            <script>
+            (function() {
+              var bookButton = document.getElementById('readV2');
+              bookButton.addEventListener('click', function () {
+                window.open('vol2/detection.html');
+              });
+            })();
+            </script>
+            &nbsp;&nbsp;&nbsp;
+            
+            </center>
+        
 
         </li>
     </ul>
@@ -262,13 +277,7 @@ These book(s) are supported by our <a class="inlineLink" href="https://www.patre
     </span>
     <br>
 
-    <div class="download-link">
-        <a href="https://addigy.com/?utm_source=Objective-See&utm_campaign=Sponsored-Link&utm_medium=paid-media">
-            <img src="images/friends/addigy.png" height="64px;" border="0" style="margin-top: 10px; border-radius: 10%;">
-            <br>
-            <div class="logo-title">Addigy</div>
-        </a>
-    </div>
+    
 
     <br>
     <br>
@@ -320,7 +329,7 @@ These book(s) are supported by our <a class="inlineLink" href="https://www.patre
     </center>
 
 </section>
-</div>	
+</div>  
 
 <!-- footer -->
 <div id="footer"></div>

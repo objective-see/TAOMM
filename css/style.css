@@ -978,6 +978,78 @@ nav[role="footer"] .archives
 	padding-bottom: 10px;
 }
 
+.outline {
+	border-bottom: 1px solid #ddd; 
+	padding-top: 10px; 
+	padding-bottom: 10px;
+}
+
+.row1 {
+  display: flex;
+  height: calc(100% - 5px);
+  width: calc(100% - 5px);
+
+}
+
+.column1 {
+  padding-left: 5px;
+  padding-right: 10px;
+  width: 300px;
+  min-width: 300px;
+}
+
+.column2 {
+  flex: 100%;
+  align-items: stretch;
+  
+}
+
+.more {
+	float: right; 
+	line-height: 34px; 
+	font-size: 20px;
+	font-weight: bold; 
+}
+
+.cc {
+  float: left;
+}
+
+.ll
+{
+	width: 12%;
+}
+
+.rr {
+  width: 8%;
+}
+
+.mm {
+  width: 80%;
+}
+
+/* Clear floats after the columns */
+.rowww:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+a.outlineLink 
+{ 
+	font-weight: 900; 
+	color: black; 
+	text-decoration: none; 
+	border-bottom-color: #31b1ce;
+}
+
+
+iframe {
+
+border-top: 1px gray solid;
+border-left: 1px gray solid;
+
+}
 
 @keyframes pulse {
   0% { transform: scale(1); }
