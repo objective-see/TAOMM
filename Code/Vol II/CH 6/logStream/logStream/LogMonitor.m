@@ -1,9 +1,10 @@
-/*
- 
- NOTE: This is PoC code
-   ...don't use in production!
-
-*/
+//
+//  logMonitor.m
+//  logAPI
+//
+//  Created by Patrick Wardle on 4/30/21.
+//  Copyright © 2021 Objective-See. All rights reserved.
+//
 
 @import OSLog;
 
@@ -53,6 +54,7 @@
         [self.liveStream setFilterPredicate:predicate];
     }
     
+
     //sanity check
     // obj responds to `setInvalidationHandler:`?
     if(YES != [self.liveStream respondsToSelector:NSSelectorFromString(@"setInvalidationHandler:")])
@@ -64,8 +66,8 @@
     //set invalidation handler
     // note: need to have somethigng set as this get called (indirectly) when
     //       the 'invalidate' method is called ... but don't need to do anything
-    [self.liveStream setInvalidationHandler:^void (int reason, id streamPosition)
-    {
+    [self.liveStream setInvalidationHandler:^void (int reason, id streamPosition) {
+        //NSLog(@"invalidation handler called with %d!", reason);
         ;
     }];
 
@@ -81,6 +83,7 @@
     // note: need to have somethigng set as this get called (indirectly)
     [self.liveStream setDroppedEventHandler:^void (id droppedMessage)
     {
+        //NSLog(@"invalidation handler called with %d!", reason);
         ;
     }];
 

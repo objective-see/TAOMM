@@ -3,16 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD665A292C10C85D007257D6 /* LogMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = CD665A262C10C85C007257D6 /* LogMonitor.m */; };
-		CD665A2A2C10C85D007257D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD665A272C10C85C007257D6 /* main.m */; };
+		CD5E35152814E547005DFFA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5E35142814E547005DFFA3 /* main.m */; };
+		CD5E351D2814E551005DFFA3 /* LogMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5E351C2814E551005DFFA3 /* LogMonitor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CD665A192C10C84F007257D6 /* CopyFiles */ = {
+		CD5E350F2814E547005DFFA3 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -24,14 +24,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CD665A1B2C10C84F007257D6 /* logMonitor */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = logMonitor; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD665A252C10C85C007257D6 /* LogMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogMonitor.h; sourceTree = "<group>"; };
-		CD665A262C10C85C007257D6 /* LogMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogMonitor.m; sourceTree = "<group>"; };
-		CD665A272C10C85C007257D6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CD5E35112814E547005DFFA3 /* logStream */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = logStream; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD5E35142814E547005DFFA3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CD5E351B2814E551005DFFA3 /* LogMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogMonitor.h; sourceTree = "<group>"; };
+		CD5E351C2814E551005DFFA3 /* LogMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogMonitor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CD665A182C10C84F007257D6 /* Frameworks */ = {
+		CD5E350E2814E547005DFFA3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,105 +41,104 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CD665A122C10C84F007257D6 = {
+		CD5E35082814E547005DFFA3 = {
 			isa = PBXGroup;
 			children = (
-				CD665A1D2C10C84F007257D6 /* logMonitor */,
-				CD665A1C2C10C84F007257D6 /* Products */,
+				CD5E35132814E547005DFFA3 /* logStream */,
+				CD5E35122814E547005DFFA3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		CD665A1C2C10C84F007257D6 /* Products */ = {
+		CD5E35122814E547005DFFA3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CD665A1B2C10C84F007257D6 /* logMonitor */,
+				CD5E35112814E547005DFFA3 /* logStream */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CD665A1D2C10C84F007257D6 /* logMonitor */ = {
+		CD5E35132814E547005DFFA3 /* logStream */ = {
 			isa = PBXGroup;
 			children = (
-				CD665A252C10C85C007257D6 /* LogMonitor.h */,
-				CD665A262C10C85C007257D6 /* LogMonitor.m */,
-				CD665A272C10C85C007257D6 /* main.m */,
+				CD5E35142814E547005DFFA3 /* main.m */,
+				CD5E351B2814E551005DFFA3 /* LogMonitor.h */,
+				CD5E351C2814E551005DFFA3 /* LogMonitor.m */,
 			);
-			path = logMonitor;
+			path = logStream;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CD665A1A2C10C84F007257D6 /* logMonitor */ = {
+		CD5E35102814E547005DFFA3 /* logStream */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CD665A222C10C84F007257D6 /* Build configuration list for PBXNativeTarget "logMonitor" */;
+			buildConfigurationList = CD5E35182814E547005DFFA3 /* Build configuration list for PBXNativeTarget "logStream" */;
 			buildPhases = (
-				CD665A172C10C84F007257D6 /* Sources */,
-				CD665A182C10C84F007257D6 /* Frameworks */,
-				CD665A192C10C84F007257D6 /* CopyFiles */,
+				CD5E350D2814E547005DFFA3 /* Sources */,
+				CD5E350E2814E547005DFFA3 /* Frameworks */,
+				CD5E350F2814E547005DFFA3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = logMonitor;
-			productName = LogMonitor;
-			productReference = CD665A1B2C10C84F007257D6 /* logMonitor */;
+			name = logStream;
+			productName = logStream;
+			productReference = CD5E35112814E547005DFFA3 /* logStream */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CD665A132C10C84F007257D6 /* Project object */ = {
+		CD5E35092814E547005DFFA3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1330;
 				TargetAttributes = {
-					CD665A1A2C10C84F007257D6 = {
-						CreatedOnToolsVersion = 15.3;
+					CD5E35102814E547005DFFA3 = {
+						CreatedOnToolsVersion = 13.3.1;
 					};
 				};
 			};
-			buildConfigurationList = CD665A162C10C84F007257D6 /* Build configuration list for PBXProject "logMonitor" */;
-			compatibilityVersion = "Xcode 14.0";
+			buildConfigurationList = CD5E350C2814E547005DFFA3 /* Build configuration list for PBXProject "logStream" */;
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = CD665A122C10C84F007257D6;
-			productRefGroup = CD665A1C2C10C84F007257D6 /* Products */;
+			mainGroup = CD5E35082814E547005DFFA3;
+			productRefGroup = CD5E35122814E547005DFFA3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CD665A1A2C10C84F007257D6 /* logMonitor */,
+				CD5E35102814E547005DFFA3 /* logStream */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CD665A172C10C84F007257D6 /* Sources */ = {
+		CD5E350D2814E547005DFFA3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD665A2A2C10C85D007257D6 /* main.m in Sources */,
-				CD665A292C10C85D007257D6 /* LogMonitor.m in Sources */,
+				CD5E35152814E547005DFFA3 /* main.m in Sources */,
+				CD5E351D2814E551005DFFA3 /* LogMonitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		CD665A202C10C84F007257D6 /* Debug */ = {
+		CD5E35162814E547005DFFA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -169,8 +168,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -184,8 +182,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.3;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -193,14 +190,13 @@
 			};
 			name = Debug;
 		};
-		CD665A212C10C84F007257D6 /* Release */ = {
+		CD5E35172814E547005DFFA3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -230,8 +226,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -239,26 +234,28 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.3;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		CD665A232C10C84F007257D6 /* Debug */ = {
+		CD5E35192814E547005DFFA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		CD665A242C10C84F007257D6 /* Release */ = {
+		CD5E351A2814E547005DFFA3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -266,25 +263,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CD665A162C10C84F007257D6 /* Build configuration list for PBXProject "logMonitor" */ = {
+		CD5E350C2814E547005DFFA3 /* Build configuration list for PBXProject "logStream" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CD665A202C10C84F007257D6 /* Debug */,
-				CD665A212C10C84F007257D6 /* Release */,
+				CD5E35162814E547005DFFA3 /* Debug */,
+				CD5E35172814E547005DFFA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CD665A222C10C84F007257D6 /* Build configuration list for PBXNativeTarget "logMonitor" */ = {
+		CD5E35182814E547005DFFA3 /* Build configuration list for PBXNativeTarget "logStream" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CD665A232C10C84F007257D6 /* Debug */,
-				CD665A242C10C84F007257D6 /* Release */,
+				CD5E35192814E547005DFFA3 /* Debug */,
+				CD5E351A2814E547005DFFA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CD665A132C10C84F007257D6 /* Project object */;
+	rootObject = CD5E35092814E547005DFFA3 /* Project object */;
 }
