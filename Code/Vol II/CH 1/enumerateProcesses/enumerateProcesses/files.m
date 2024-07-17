@@ -36,7 +36,7 @@ NSMutableArray* getFiles(pid_t pid)
     if(size <= 0)
     {
         //error
-        NSLog(@"ERROR: 'proc_pidinfo' failed with %d", errno);
+        printf("\nERROR: 'proc_pidinfo' failed with %d\n\n", errno);
         goto bail;
     }
     
@@ -53,7 +53,7 @@ NSMutableArray* getFiles(pid_t pid)
     if(size <= 0)
     {
         //error
-        NSLog(@"ERROR: 'proc_pidinfo' failed with %d", errno);
+        printf("\nERROR: 'proc_pidinfo' failed with %d\n\n", errno);
         goto bail;
     }
     

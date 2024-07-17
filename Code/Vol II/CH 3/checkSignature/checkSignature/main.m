@@ -166,6 +166,11 @@ int main(int argc, const char * argv[]) {
         case CSSMERR_TP_CERT_REVOKED:
         case errSecCSRevokedNotarization:
             printf("Status: certificate revoked\n");
+            
+            if(NULL != results[KEY_SIGNING_AUTHORITIES])
+            {
+                printf("Signing authorities: %s\n", [[results[KEY_SIGNING_AUTHORITIES] description] UTF8String]);
+            }
             break;
             
         default:
@@ -198,6 +203,7 @@ NSMutableDictionary* checkItem(NSString* item)
     //flags
     SecCSFlags flags = 0;
     
+    //TODO:?
     //extracted flags
     NSNumber* csFlags = nil;
     
@@ -632,14 +638,16 @@ NSMutableDictionary* checkPackage(NSString* package)
     {
         //save error
         info[KEY_SIGNATURE_STATUS] = [NSNumber numberWithInteger:error.code];
-        goto bail;
-        
+    }
+    //happily signed
+    else
+    {
+        //save
+        info[KEY_SIGNATURE_STATUS] = [NSNumber numberWithInt:errSecSuccess];
     }
     
-    //happily signed
-    info[KEY_SIGNATURE_STATUS] = [NSNumber numberWithInt:errSecSuccess];
-     
     //add signing certs
+    // want these even if they are revoked
     if(nil != signature.certificateRefs)
     {
         //add

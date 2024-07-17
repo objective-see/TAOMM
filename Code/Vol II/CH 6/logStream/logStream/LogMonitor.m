@@ -51,9 +51,14 @@
     //set predicate
     if(nil != predicate)
     {
-        [self.liveStream setFilterPredicate:predicate];
+        @try {
+            [self.liveStream setFilterPredicate:predicate];
+        } @catch (NSException *exception) {
+            
+            NSLog(@"ERROR: setFilterPredicate: failed with %@", exception);
+            goto bail;
+        }
     }
-    
 
     //sanity check
     // obj responds to `setInvalidationHandler:`?

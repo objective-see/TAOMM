@@ -98,7 +98,7 @@ NSData* getAuditToken(pid_t pid)
     if(KERN_SUCCESS != status)
     {
         //err
-        NSLog(@"ERROR: task_name_for_pid failed with %d/%#x", status, status);
+        printf("\nERROR: task_name_for_pid failed with %d/%#x\n\n", status, status);
         goto bail;
     }
     
@@ -106,7 +106,7 @@ NSData* getAuditToken(pid_t pid)
     if(KERN_SUCCESS != status)
     {
         //err
-        NSLog(@"ERROR: 'task_info' failed with %d/%#x", status, status);
+        printf("\nERROR: 'task_info' failed with %d/%#x\n\n", status, status);
         goto bail;
     }
 
@@ -187,7 +187,7 @@ pid_t getCarbonParent(pid_t pid)
     if(noErr != status)
     {
         //error
-        NSLog(@"ERROR: 'GetProcessForPID' failed with %d", status);
+        printf("\nERROR: 'GetProcessForPID' failed with %d\n\n", status);
         goto bail;
     }
     
@@ -196,7 +196,7 @@ pid_t getCarbonParent(pid_t pid)
     if(nil == processInfo)
     {
         //error
-        NSLog(@"ERROR: 'ProcessInformationCopyDictionary' failed with %d", status);
+        printf("\nERROR: 'ProcessInformationCopyDictionary' failed\n\n");
         goto bail;
     }
     
@@ -209,7 +209,7 @@ pid_t getCarbonParent(pid_t pid)
     if(nil == processInfo)
     {
         //error
-        NSLog(@"ERROR: 'ProcessInformationCopyDictionary' failed with %d", status);
+        printf("ERROR: 'ProcessInformationCopyDictionary' failed with %d\n\n", status);
         goto bail;
     }
     
@@ -673,25 +673,36 @@ void examineProcess(pid_t pid)
     printf(" responsible parent: (%d) %s\n", rpid, getProcessName(rpid).UTF8String);
     
     cpid = getCarbonParent(pid);
-    printf(" carbon parent: (%d) %s\n", cpid, getProcessName(cpid).UTF8String);
+    if(0 != cpid)
+    {
+        printf(" carbon parent: (%d) %s\n", cpid, getProcessName(cpid).UTF8String);
+    }
+    else
+    {
+        printf(" carbon parent not found!\n");
+    }
     
     startTime = getStartTime(pid);
     printf(" start time: %s\n", startTime.description.UTF8String);
     
-    cpuUsage = getCPUUsage(pid, 5);
-    printf(" cpu usage: %f%%\n", cpuUsage);
+    //uncomment if you want CPU usage
     
     /*
+    cpuUsage = getCPUUsage(pid, 5);
+    printf(" cpu usage: %f%%\n", cpuUsage);
+    */
      
+    //uncomment if you want loaded libraries and open files usage
+    
+    /*
     libraries = getLibraries(pid);
     printf(" loaded libraries: %s\n", libraries.description.UTF8String);
     
     files = getFiles(pid);
-    printf(" open files: %s\n", files.description.UTF8String);
+    printf(" open files (via 'proc_pidinfo'): %s\n", files.description.UTF8String);
     
     files = getFiles2(pid);
-    printf(" open files: %s\n", files.description.UTF8String);
-    
+    printf(" open files (via 'lsof'): %s\n", files.description.UTF8String);
     */
     
     return;

@@ -17,7 +17,7 @@
 /* GLOBALS */
 
 //endpoint client
-es_client_t* client = nil;
+es_client_t* client = NULL;
 
 int main(int argc, const char * argv[]) {
     

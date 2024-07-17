@@ -80,11 +80,8 @@ BOOL monitor(void)
                 {
                     printf(" cpu type: %#x/%d\n", cpuType, cpuType);
                 }
-                
-                csFlags = 0x22000007;
+      
                 printf(" code signing flags: %#x\n", csFlags);
-                
-                
                 if(CS_VALID & csFlags) {
                     printf(" code signing flag 'CS_VALID' is set\n");
                 }
@@ -93,6 +90,10 @@ BOOL monitor(void)
                 }
                 if(CS_ADHOC & csFlags) {
                     printf(" code signing flag 'CS_ADHOC' is set\n");
+                }
+                if(CS_HARD & csFlags)
+                {
+                    printf(" code signing flag 'CS_HARD' is set\n");
                 }
 
                 printf("\n");

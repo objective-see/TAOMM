@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22689"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22690"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="Info" id="Jo8-eL-tKb"/>
                     </imageView>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="32L-Yf-qTa">
+                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="32L-Yf-qTa">
                         <rect key="frame" x="50" y="133" width="372" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="2. From Terminal.app, run FileMonitor's binary:" id="bDa-8R-S8V">
@@ -42,7 +42,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qQ-l9-bxZ">
+                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qQ-l9-bxZ">
                         <rect key="frame" x="52" y="70" width="453" height="51"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="62I-4J-Zoo">
@@ -64,7 +64,7 @@
                             <action selector="close:" target="Voe-Tx-rLC" id="Xbb-as-hud"/>
                         </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KD-0A-7mj">
+                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KD-0A-7mj">
                         <rect key="frame" x="50" y="166" width="310" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="1. Give Terminal.app &quot;Full Disk Access&quot;" id="2nz-Xv-PJT">
@@ -73,7 +73,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z33-WW-Z3L">
+                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z33-WW-Z3L">
                         <rect key="frame" x="92" y="208" width="199" height="20"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="To run FileMonitor:" id="rw6-yP-3Lq">
