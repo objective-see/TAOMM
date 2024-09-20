@@ -176,10 +176,10 @@ pid_t getCarbonParent(pid_t pid)
     NSDictionary* processInfo = nil;
     
     //process serial number
-    ProcessSerialNumber psn = {0, kNoProcess};
+    ProcessSerialNumber psn = {kNoProcess, kNoProcess};
     
     //(parent) process serial number
-    ProcessSerialNumber ppsn = {0, kNoProcess};
+    ProcessSerialNumber ppsn = {kNoProcess, kNoProcess};
     
     OSStatus status = 0;
 
