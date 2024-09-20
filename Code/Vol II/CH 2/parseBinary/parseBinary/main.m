@@ -9,6 +9,7 @@
 #import <mach-o/arch.h>
 #import <mach-o/swap.h>
 #import <mach-o/loader.h>
+#import <mach-o/fixup-chains.h>
 
 #if __has_include(<mach-o/utils.h>)
 #import <mach-o/utils.h>
@@ -29,6 +30,7 @@ BOOL isPackedByEntropy(struct mach_header_64* header, NSUInteger size);
 NSMutableSet* isPackedByName(NSMutableArray* segsAndSects);
 
 NSMutableArray* extractSymbols(struct mach_header_64* header);
+NSMutableArray* extractChainedSymbols(struct mach_header_64* header);
 NSMutableArray* extractDependencies(struct mach_header_64* header);
 NSMutableArray* extractSegmentsAndSections(struct mach_header_64* header);
 NSMutableArray* findLoadCommand(struct mach_header_64* header, uint32_t cmd);
@@ -263,12 +265,22 @@ void parseMachO(struct mach_header_64* header, NSUInteger size)
     printf("Dependencies: (count: %lu): %s\n", (unsigned long)dependencies.count, dependencies.description.UTF8String);
     
     //extract symbols
-    symbols = extractSymbols(header);
+    // default (older) method uses 'LC_SYMTAB'
+    if(NULL != [findLoadCommand(header, LC_SYMTAB) firstObject])
+    {
+        symbols = extractSymbols(header);
+    }
+    //extract symbols
+    // newer method uses 'LC_DYLD_CHAINED_FIXUPS'
+    else
+    {
+        symbols = extractChainedSymbols(header);
+    }
+    
     printf("Symbols (count: %lu): %s\n", (unsigned long)symbols.count, symbols.description.UTF8String);
-     
-
+    
     segsAndSects = extractSegmentsAndSections(header);
-    printf("segments and sections: %s\n", segsAndSects.description.UTF8String);
+    printf("Segments and sections: %s\n", segsAndSects.description.UTF8String);
     
     packerSegsOrSects = isPackedByName(segsAndSects);
     if(0 != packerSegsOrSects.count)
@@ -278,21 +290,20 @@ void parseMachO(struct mach_header_64* header, NSUInteger size)
     }
     else
     {
-        printf("binary does *not* appears to be packed\n");
+        printf("binary does not appear to be packed\n");
         printf("no packer-related section or segment detected\n");
     }
     
     if(YES == isPackedByEntropy(header, size))
     {
         printf("binary appears to be packed\n");
-        printf("signification amount of high-entropy data detected\n");
+        printf("significant amount of high-entropy data detected\n");
     }
     else
     {
-        printf("binary does *not* appears to be packed\n");
+        printf("binary does not appear to be packed\n");
         printf("no signification amount of high-entropy data detected\n");
     }
-
 }
 
 //print out a mach-O header
@@ -451,7 +462,6 @@ float calcEntropy(unsigned char* data, NSUInteger length)
         entropy -= pX*log2(pX);
     }
     
-//bail
 bail:
     
     return entropy;
@@ -543,7 +553,7 @@ NSMutableArray* extractDependencies(struct mach_header_64* header)
 
 
 //extract symbols
-// just from LC_SYMTAB (not from LC_DYSYMTAB)
+// just from LC_SYMTAB (but not from LC_DYSYMTAB)
 NSMutableArray* extractSymbols(struct mach_header_64* header)
 {
     //symbols
@@ -605,6 +615,80 @@ NSMutableArray* extractSymbols(struct mach_header_64* header)
         //next
         nlist++;
     }
+   
+bail:
+    
+    return symbols;
+}
+
+//extract symbols
+// from LC_DYLD_CHAINED_FIXUPS (on newer binaries)
+NSMutableArray* extractChainedSymbols(struct mach_header_64* header)
+{
+    //symbols
+    NSMutableArray* symbols = nil;
+    
+    //load command
+    NSMutableArray* commands = nil;
+    
+    //LC_DYLD_CHAINED_FIXUPS load command
+    // which is a linkedit_data_command struct
+    struct linkedit_data_command* chainedFixupsCmd = NULL;
+    
+    //header of the LC_DYLD_CHAINED_FIXUPS
+    struct dyld_chained_fixups_header* chainedFixupsHeader = NULL;
+    
+    //DYLD_CHAINED_IMPORT(s)
+    struct dyld_chained_import *imports = NULL;
+    
+    //chained symbols
+    char* chainedSymbols = NULL;
+    
+    //init
+    symbols = [NSMutableArray array];
+    
+    //get LC_DYLD_CHAINED_FIXUPS load commands
+    commands = findLoadCommand(header, LC_DYLD_CHAINED_FIXUPS);
+    
+    //extract LC_DYLD_CHAINED_FIXUPS command
+    chainedFixupsCmd = ((NSValue*)commands.firstObject).pointerValue;
+    if(NULL == chainedFixupsCmd)
+    {
+        goto bail;
+    }
+
+    //init header
+    chainedFixupsHeader = (((void*)header) + chainedFixupsCmd->dataoff);
+    
+    //don't support compressed symbols (for now)
+    if(1 == chainedFixupsHeader->symbols_format)
+    {
+        printf("ERROR: extracting of compressed symbols in not currently supported\n\n");
+        goto bail;
+    }
+    
+    //init imports
+    // from 'imports_offset'
+    imports = (struct dyld_chained_import *)((void*)chainedFixupsHeader + chainedFixupsHeader->imports_offset);
+    
+    //init chained symbols
+    // from 'symbols_offset'
+    chainedSymbols = (((void*)chainedFixupsHeader) + chainedFixupsHeader->symbols_offset);
+    
+    //iterate over all
+    // grab all symbols
+    for (int i = 0; i < chainedFixupsHeader->imports_count; i++) {
+        
+        char* symbol = chainedSymbols + imports[i].name_offset;
+        if(0 != symbol[0])
+        {
+            //save
+            [symbols addObject:[NSString stringWithUTF8String:symbol]];
+        }
+    }
+    
+    //TODO: compressed?
+    
    
 bail:
     
