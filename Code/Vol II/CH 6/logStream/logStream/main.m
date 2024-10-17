@@ -67,7 +67,7 @@ int main(int argc, const char * argv[]) {
         if(2 == argc)
         {
             //grab/init predicate
-            // gotta wrap in try, as `predicateWithFormat` can throw
+            // gotta wrap in try, as `predicateWithFormat:` can throw
             @try {
                 predicate = [NSPredicate predicateWithFormat:NSProcessInfo.processInfo.arguments.lastObject];
             } @catch (NSException *exception) {
