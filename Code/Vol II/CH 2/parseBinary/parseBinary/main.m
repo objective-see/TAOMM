@@ -154,9 +154,9 @@ struct fat_arch* parseFat(const char* file, struct fat_header* header)
         swap_fat_arch((struct fat_arch*)((unsigned char*)header + sizeof(struct fat_header)), header->nfat_arch, localArch->byteorder);
     }
     
-    printf("Fat header\n");
-    printf("fat_magic: %#x\n", header->magic);
-    printf("nfat_arch: %x\n",  header->nfat_arch);
+    printf("Fat headers\n");
+    printf("fat_magic %#x\n", header->magic);
+    printf("nfat_arch %x\n",  header->nfat_arch);
     
     arch = (struct fat_arch*)((unsigned char*)header + sizeof(struct fat_header));
     
@@ -177,16 +177,16 @@ struct fat_arch* parseFat(const char* file, struct fat_header* header)
         int result = -1;
         __block int count = 0;
         
-        printf("\nResults from 'macho_for_each_slice':\n\n");
+        printf("\nResults from 'macho_for_each_slice' \n\n");
         
         //iterate over each slice
         result = macho_for_each_slice(file, ^(const struct mach_header *slice, uint64_t offset, size_t size, bool *stop) {
             
             printf("architecture %d\n", count++);
-            printf("offset: %llu (%#llx)\n", offset, offset);
-            printf("size: %zu (%#zx)\n", size, size);
+            printf("offset %llu (%#llx)\n", offset, offset);
+            printf("size %zu (%#zx)\n", size, size);
             
-            printf("name: %s\n\n", macho_arch_name_for_mach_header(slice));
+            printf("name %s\n\n", macho_arch_name_for_mach_header(slice));
             
         });
         if(0 != result) {
@@ -222,12 +222,12 @@ void printFatArch(struct fat_arch* arch)
     int32_t cpusubtype = 0;
     cpusubtype = arch->cpusubtype & ~CPU_SUBTYPE_MASK;
     
-    printf(" cputype: %u (%#x)\n", arch->cputype, arch->cputype);
-    printf(" cpusubtype: %u (%#x)\n", cpusubtype, cpusubtype);
-    printf(" capabilities: 0x%#x\n", (arch->cpusubtype & CPU_SUBTYPE_MASK) >> 24);
-    printf(" offset: %u (%#x)\n", arch->offset, arch->offset);
-    printf(" size: %u (%#x)\n", arch->size, arch->size);
-    printf(" align: 2^%u (%d)\n", arch->align, (int)pow(2, arch->align));
+    printf(" cputype %u (%#x)\n", arch->cputype, arch->cputype);
+    printf(" cpusubtype %u (%#x)\n", cpusubtype, cpusubtype);
+    printf(" capabilities 0x%#x\n", (arch->cpusubtype & CPU_SUBTYPE_MASK) >> 24);
+    printf(" offset %u (%#x)\n", arch->offset, arch->offset);
+    printf(" size %u (%#x)\n", arch->size, arch->size);
+    printf(" align 2^%u (%d)\n", arch->align, (int)pow(2, arch->align));
     
     return;
 }
@@ -262,7 +262,7 @@ void parseMachO(struct mach_header_64* header, NSUInteger size)
     
     //extract dependencies
     dependencies = extractDependencies(header);
-    printf("Dependencies: (count: %lu): %s\n", (unsigned long)dependencies.count, dependencies.description.UTF8String);
+    printf("Dependencies (count: %lu) %s\n", (unsigned long)dependencies.count, dependencies.description.UTF8String);
     
     //extract symbols
     // default (older) method uses 'LC_SYMTAB'
@@ -277,10 +277,10 @@ void parseMachO(struct mach_header_64* header, NSUInteger size)
         symbols = extractChainedSymbols(header);
     }
     
-    printf("Symbols (count: %lu): %s\n", (unsigned long)symbols.count, symbols.description.UTF8String);
+    printf("Symbols (count %lu) %s\n", (unsigned long)symbols.count, symbols.description.UTF8String);
     
     segsAndSects = extractSegmentsAndSections(header);
-    printf("Segments and sections: %s\n", segsAndSects.description.UTF8String);
+    printf("Segments and sections %s\n", segsAndSects.description.UTF8String);
     
     packerSegsOrSects = isPackedByName(segsAndSects);
     if(0 != packerSegsOrSects.count)
@@ -313,17 +313,17 @@ void printMachOHeader(struct mach_header_64* header)
     cpusubtype = header->cpusubtype & ~CPU_SUBTYPE_MASK;
     
     printf("\nMach-O header\n");
-    printf(" magic: %#x\n", header->magic);
-    printf(" cputype: %u (%#x)\n", header->cputype, header->cputype);
-    printf(" cpusubtype: %u (%#x)\n", cpusubtype, cpusubtype);
-    printf(" capabilities: %#x\n", (header->cpusubtype & CPU_SUBTYPE_MASK) >> 24);
+    printf(" magic %#x\n", header->magic);
+    printf(" cputype %u (%#x)\n", header->cputype, header->cputype);
+    printf(" cpusubtype %u (%#x)\n", cpusubtype, cpusubtype);
+    printf(" capabilities %#x\n", (header->cpusubtype & CPU_SUBTYPE_MASK) >> 24);
     
-    printf(" filetype: %u (%#x)\n", header->filetype, header->filetype);
+    printf(" filetype %u (%#x)\n", header->filetype, header->filetype);
     
-    printf(" ncmds: %u\n", header->ncmds);
-    printf(" sizeofcmds: %u\n", header->sizeofcmds);
+    printf(" ncmds %u\n", header->ncmds);
+    printf(" sizeofcmds %u\n", header->sizeofcmds);
     
-    printf(" flags: %#x\n", header->flags);
+    printf(" flags %#x\n", header->flags);
     
     return;
 }
@@ -404,12 +404,12 @@ BOOL isPackedByEntropy(struct mach_header_64* header, NSUInteger size)
             compressedData += segment->filesize;
         }
         
-        printf("segment (size: %llu) %s's entropy: %f\n", segment->filesize, name.UTF8String, segmentEntropy);
+        printf("segment (size: %llu) %s's entropy %f\n", segment->filesize, name.UTF8String, segmentEntropy);
         
     }
     
-    printf("total compressed data: %f\n", compressedData);
-    printf("total compressed data vs. size: %f\n", compressedData/size);
+    printf("total compressed data %f\n", compressedData);
+    printf("total compressed data vs. size %f\n", compressedData/size);
     
     //final calculation for architecture
     if((compressedData/size) > .2)
@@ -488,7 +488,7 @@ BOOL isEncrypted(struct mach_header_64* header)
         
         name = [[NSString alloc] initWithBytes:segment->segname length:sizeof(segment->segname) encoding:NSASCIIStringEncoding];
         
-        printf("segment %s's flags: %x\n", name.UTF8String, segment->flags);
+        printf("segment %s's flags %x\n", name.UTF8String, segment->flags);
         
         //check if segment is protected
         if(SG_PROTECTED_VERSION_1 == (segment->flags & SG_PROTECTED_VERSION_1)) {
