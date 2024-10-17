@@ -168,7 +168,7 @@ pid_t getResponsibleParent(pid_t child)
 }
 
 //get (true) parent
-pid_t getCarbonParent(pid_t pid)
+pid_t getASParent(pid_t pid)
 {
     pid_t parent = 0;
     
@@ -672,14 +672,14 @@ void examineProcess(pid_t pid)
     rpid = getResponsibleParent(pid);
     printf(" responsible parent: (%d) %s\n", rpid, getProcessName(rpid).UTF8String);
     
-    cpid = getCarbonParent(pid);
+    cpid = getASParent(pid);
     if(0 != cpid)
     {
-        printf(" carbon parent: (%d) %s\n", cpid, getProcessName(cpid).UTF8String);
+        printf(" application services parent: (%d) %s\n", cpid, getProcessName(cpid).UTF8String);
     }
     else
     {
-        printf(" carbon parent not found!\n");
+        printf(" application services parent not found!\n");
     }
     
     startTime = getStartTime(pid);
