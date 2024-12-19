@@ -91,7 +91,7 @@ int main(int argc, const char * argv[]) {
         
         LogMonitor* logMonitor = [[LogMonitor alloc] init];
         
-        [logMonitor start:predicate level:Log_Level_Info|Log_Level_Debug eventHandler:^(OSLogEventProxy* event) {
+        [logMonitor start:predicate level:Log_Level_Debug eventHandler:^(OSLogEventProxy* event) {
             
             printf("\n\nNew Log Message:\n");
             inspectObject(event);
