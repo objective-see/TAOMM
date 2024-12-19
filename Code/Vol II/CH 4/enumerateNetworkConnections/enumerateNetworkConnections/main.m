@@ -30,7 +30,7 @@ NSString* hostForAddress(char* address)
     NSString* resolvedName = nil;
     
     //results
-    struct addrinfo *results = NULL;
+    struct addrinfo* results = NULL;
     
     //resolved name
     char hostname[NI_MAXHOST] = {0};
@@ -62,7 +62,7 @@ NSString* hostForAddress(char* address)
     //cleanup
     if(NULL != results)
     {
-        free(results);
+        freeaddrinfo(results);
         results = NULL;
     }
     
