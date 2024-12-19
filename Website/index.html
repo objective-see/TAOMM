@@ -13,10 +13,12 @@
 
 <script> 
     $(function(){
-      $("#header").load("header.html"); 
+      $("#header").load("header.html", function() {
+        $("body").css("visibility", "visible");
+      }); 
       $("#footer").load("footer.html"); 
     });
-</script> 
+</script>
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@objective_see" />
