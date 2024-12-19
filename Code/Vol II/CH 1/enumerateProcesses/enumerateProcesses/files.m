@@ -32,7 +32,7 @@ NSMutableArray* getFiles(pid_t pid)
     files = [NSMutableArray array];
     
     //get size needed to hold list of file descriptors
-    size = proc_pidinfo(pid, PROC_PIDLISTFDS, 0, 0, 0);
+    size = proc_pidinfo(pid, PROC_PIDLISTFDS, 0, NULL, 0);
     if(size <= 0)
     {
         //error
