@@ -1086,15 +1086,15 @@ border-left: 1px gray solid;
 }
 
 .book-description {
-    font-family: 'Times New Roman', serif; /* Ensure fallback to serif fonts */
-    font-size: 1.2em;
+    font-family: 'Courier New';
+    font-size: 1.1em;
     line-height: 2.0; /* Improve readability with spacing between lines */
 }
 
 .button-container {
     display: flex;
     justify-content: center; /* Center buttons horizontally */
-    gap: 10px; /* Space between buttons */
+    gap: 20px; /* Space between buttons */
     margin-top: 20px; /* Space above buttons */
 }
 
@@ -1103,6 +1103,7 @@ border-left: 1px gray solid;
     padding: 10px 20px; /* Ensure buttons are visually balanced */
     font-size: 14px; /* Set a uniform font size */
     cursor: pointer; /* Add pointer cursor for buttons */
+    width: 100px;
 }
 
 .about-section {
@@ -1113,8 +1114,7 @@ border-left: 1px gray solid;
     width: 90%; /* Makes it responsive with a relative width */
     max-width: 1400px; /* Restricts the maximum width */
     margin: 0 auto; /* Center the section horizontally */
-    background-color: #999999; /* Background color similar to the example */
-    color: white; /* Text color */
+    margin-top: 20px;
 }
 
 .about-container {
@@ -1132,7 +1132,7 @@ border-left: 1px gray solid;
     justify-content: center; /* Center text vertically */
     align-items: center; /* Center text horizontally */
     text-align: center; /* Align text content horizontally (text-align handles inline text) */
-    font-family: 'Times New Roman', serif;
+    font-family: 'Courier New';
     margin: 0; /* Remove any margin */
     padding: 20px; /* Optional padding for spacing */
 }
@@ -1149,7 +1149,6 @@ border-left: 1px gray solid;
     font-size: 1.2em;
     line-height: 1.8;
     margin: 0 0 30px 0; /* Keep bottom margin for spacing between paragraphs */
-    color: white; /
 }
 
 .about-image {
@@ -1161,6 +1160,6 @@ border-left: 1px gray solid;
 .about-image img {
     width: 100%; /* Ensure the image fills the column width */
     object-fit: cover; /* Crops the image to ensure it fills the container */
-    border-radius: 0; /* Remove rounded corners, if necessary */
+    border-radius: 10px; /* Remove rounded corners, if necessary */
     display: block; /* Ensures no extra space below the image */
 }
