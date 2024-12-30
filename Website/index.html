@@ -9,16 +9,11 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<script src="js/analytics.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="social/ss-social.js"></script>
+<link href="social/ss-social.css" rel="stylesheet" />
 
-<script> 
-    $(function(){
-      $("#header").load("header.html", function() {
-        $("body").css("visibility", "visible");
-      }); 
-      $("#footer").load("footer.html"); 
-    });
-</script>
+<script src="js/analytics.js"></script>
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@objective_see" />
@@ -37,70 +32,81 @@
 <body>
 
 <!-- Header/Menu -->
-<div id="header"></div>
-<div class="subHeader">
-    Books about Mac Malware
-    <br>
-    <span style="font-size: 20px;">by Patrick Wardle</span>
-    <br>
-    <br>
-    <img src="images/center.png" height="512px;" border="0" style="">
+
+
+
+<nav role="main">
+<ul>
+    <!-- logo, left -->
+    <li>
+    <div class="logo">
+        <a href="/index.html">
+            <div class="title">
+                The Art of Mac Malware
+                <br>
+                <div style="font-size:15px; font-family:Courier New; padding-left: 20px;">
+                    Books about Mac Malware, by P. Wardle
+                </div>
+            </div>
+        </a>
+    </div>
+    </li>
+
+    <!-- support us -->
+    <li>
+        <form action="support.html" style="display: inline;">
+            <button class="menuicon button-4" role="button">Support!</button>
+        </form>
+    </li>
+
+    <!-- author -->
+    <li>
+        <a href="index.html#author" class="menuicon">
+        <figure class="item">
+            <center>
+            <img src="images/authorIcon.png" class="item"/>
+            </center>
+            <figcaption class="item">Author</figcaption>
+        </figure>
+        </a>
+    </li>
+    
+    <!-- books -->
+    <li>
+        <a href="index.html#books" class="menuicon">
+        <figure class="item">
+            <center>
+                <img src="images/bookIcon.png" class="item" />
+            </center>
+            <figcaption class="item">Books</figcaption>
+        </figure>
+        </a>
+    </li>
+
+</ul>
+
+</nav>
 
 </div>
 
-<br>
-<br>    
-<div class="pageContent">
 
-<span class="wrapper" style="text-align: left;">
-    
-    <center>
-        Read online (for free!) <a class="inlineLink" href="vol1/read.html">Volume I: Analysis</a>.
-    </center>
-
-<!-- BOOKS -->
-    <a id="books"></a>
-    <div class="speaker">
-        <span class="contentHeader">📚&nbsp; Books:</span>     
-    </div>
-    <br>
-    <span style="font-size:20px;">
-    The "Art of Mac Malware" was created to provide a comprehensive resource about threats targeting Apple's desktop OS. Dedicated to the community, it is a culmination of over a decade of macOS security research.
-    <br>
-    <br>
-    These books are peer-reviewed and open to community input. Digital versions are 100% free, while all royalties from sales (of the <a class="inlineLink" href="https://amzn.to/3yKWEsg" target="_blank" >printed versions</a>), are donated to the <a class="inlineLink" href="https://objective-see.org/" target="_blank">Objective-See Foundation</a>! 😇
-    </span>
-    <br>
-    <br>
-    <br>
-    <span class="title">Volume I: Analysis</span>
-
-    <br>
-    <ul class="flex-container">
-        
-        <li class="flex-icon">
-            <div class="download-link" style="min-width: 350px;">
-            <center>
-            <a href="https://amzn.to/3yKWEsg" target="_blank" >
-                <img src="images/cover_v1.jpg" height="400px" border="0" style="margin-top: 10px; border-radius: 2%;">
-                <h2 class="download-title">Volume I: Analysis</h2>
-            </a>
-            </center>
+    <div class="flex-container">
+    <div class="column">
+        <img src="images/cover_1.webp" border="0" style="margin-top: 10px; border-radius: 2%;">
+        <h2 class="download-title">Volume I: Analysis</h2>
+        <div class="book-description">
+            Defenders must understand how malware works to counter threats targeting Apple products. This volume explores infection methods, persistence mechanisms, and reverse-engineering techniques to analyze malicious code.
         </div>
-        </li>
-        <li class="flex-content">
-            <div style="padding-top: 10px; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:17px;">
-            Defenders must fully understand how malicious software works if they hope to stay ahead of the increasingly sophisticated threats facing Apple products today. The Art of Mac Malware: The Guide to Analyzing Malicious Software is a comprehensive handbook to cracking open these malicious programs and seeing what’s inside.
-            <br><br>
-            Discover the secrets of nation state backdoors, destructive ransomware, and subversive cryptocurrency miners as you uncover their infection methods, persistence strategies, and insidious capabilities. Then work with and extend foundational reverse-engineering tools to extract and decrypt embedded strings, unpack protected Mach-O malware, and even reconstruct binary code. Next, using a debugger, you’ll execute the malware, instruction by instruction, to discover exactly how it operates. In the book’s final section, you’ll put these lessons into practice by analyzing a complex Mac malware specimen on your own.
-            <br><br>
-            </div>
-    
-            <center>
-            <br><br>
-            <button class="menubutton button-2" id="readV1" role="link" type="button">
-                Read Online (for free) »
-            </button>
+
+
+        <div class="button-container">
+        <button class="menubutton button-2" id="readV1" role="link" type="button">
+                Read (Free!)
+        </button> 
+
+        <button class="menubutton button-2" id="orderV1" role="link" type="button">
+                Order
+        </button>
             
             <script>
             (function() {
@@ -111,249 +117,101 @@
             })();
             </script>
             &nbsp;&nbsp;&nbsp;
-            <button class="menubutton button-2" id="order" role="link" type="button">
-                Order Printed Version »
-            </button>
+            
         
             <script>
             (function() {
-              var bookButton = document.getElementById('order');
+              var bookButton = document.getElementById('orderV1');
               bookButton.addEventListener('click', function () {
-                window.open('https://amzn.to/3yKWEsg', '_blank');
+                window.open('https://www.amazon.com/Art-Mac-Malware-Analyzing-Malicious/dp/1718501943', '_blank');
               });
             })();
             </script>
-            </center>
-        </li>
-    </ul>
-    <br>
-    <br>
-    <br>
-    <span class="title">Volume II: Detection</span>
-    <ul class="flex-container" style="padding-top: 30px;">
-        <li class="flex-icon">
-            <div class="download-link" style="min-width: 350px;">
-            <center>
-            <a href="#">
-                <img src="images/cover_v2.jpg" height="400px;" border="0" style="margin-top: 10px; border-radius: 5%;">
-                <h2 class="download-title">Volume II: Detection</h2>
-            </a>
-            </center>
-            
         </div>
 
-        </li>
-        <li class="flex-content">
-            
-            <div style="padding-top: 10px; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:17px;">
-            Analyzing malware is only half the battle. Detecting malicious code in the first place, is the other essential piece! 
-            <br><br>
-            Volume I detailed the infection vectors, persistence mechanisms, and internals of Mac malware, providing the reader with comprehensive understanding of, well, what Mac malware "looks like." Now we're ready to discuss exactly how to programmatically detect such malicious code. 
-            <br><br>
-            The second volume of the "The Art of Mac Malware" is a comprehensive resource that covers the programmatic detection of macOS malware code via behavioral-based heuristics.
-            <br><br>
-            Armed with topics and approaches covered in this second volume, Mac malware doesn't stand a chance!
-            </div>
-    
-            <center>
-            <br><br>
-            <!--
-            <button class="menubutton button-2" id="readV2" role="link" type="button">
-                Read Online (for free) »
-            </button>
-            -->
 
-            <button class="menubutton button-2" id="orderV2" role="link" type="button">
-                Pre-order Printed Version »
-            </button>
+    </div>
+
+    <div class="column">
+         <img src="images/cover_2.webp" border="0" style="margin-top: 10px; border-radius: 2%;">
+        <h2 class="download-title">Volume II: Detection</h2>
+        <div class="book-description">
+           Detecting malware is as vital as analyzing it. This volume explores detecting malicious code with behavioral heuristics, equipping you to develop tools and techniques to neutralize threats.
+        </div>
+
+        <div class="button-container">
+        <button class="menubutton button-2" id="readV2" role="link" type="button">
+                Read (Free!)
+        </button> 
+
+        <button class="menubutton button-2" id="orderV2" role="link" type="button">
+                Order
+        </button>
             
             <script>
             (function() {
-              var bookButton = document.getElementById('orderV2');
+              var bookButton = document.getElementById('readV2');
               bookButton.addEventListener('click', function () {
-                window.open('https://www.amazon.com/Art-Mac-Malware-Detecting-Malicious/dp/1718503784/');
+                window.open('vol2/read.html');
               });
             })();
             </script>
             &nbsp;&nbsp;&nbsp;
             
-            </center>
         
+            <script>
+            (function() {
+              var bookButton = document.getElementById('orderV2');
+              bookButton.addEventListener('click', function () {
+                window.open('https://www.amazon.com/Art-Mac-Malware-Detecting-Malicious/dp/1718503784/', '_blank');
+              });
+            })();
+            </script>
+        </div>
+        
+    </div>
 
-        </li>
-    </ul>
+    </div>
 
-<a id="author"></a>
-<div class="speaker">
-<span class="contentHeader">👨🏻‍💻&nbsp; Author:</span> 
+    <br><br>
+    <br><br>
+    <div class="about-section">
+    <div class="about-container">
+        <!-- Left Column: Text -->
+        <div class="about-text">
+            <h2>About Patrick</h2>
+            <p>
+                Aloha, I'm Patrick Wardle, the creator of the non-profit The Objective-See Foundation, author of the "The Art of Mac Malware" book series, and founder of the "Objective by the Sea" Mac Security Conference.
+                <br><br>
+                Having worked at NASA and the NSA, as well as presenting at countless security conferences, I'm intimately familiar with aliens, spies, and talking nerdy.
+            </p>
+        </div>
+
+        <!-- Right Column: Image -->
+        <div class="about-image">
+            <img src="images/headshot.jpg" alt="Patrick Wardle">
+        </div>
+    </div>
 </div>
-<span style="font-size:20px;">
-<br>
-Aloha, I'm Patrick Wardle, the creator of the non-profit <a class="inlineLink" href="https://objective-see.org/" target="_blank">The Objective-See Foundation</a>, author of the "The Art of Mac Malware" book series, and founder of the <a class="inlineLink" href="https://objectivebythesea.org/" target="_blank">"Objective by the Sea"</a> Mac Security Conference.
-<br><br>
-Having worked at NASA and the NSA, as well as presenting at countless security conferences, I'm intimately familiar with aliens, spies, and talking nerdy.
-<br><br>
-I'm quite passionate about all things related to macOS security and thus spend my days finding Apple 0days, analyzing macOS malware, and writing both books and free open-source security tools to protect Mac users.
-
-<img src="images/headshot.jpg" width="100%" border="0" style="margin-top: 10px; border-radius: 10px;">
-
 <br>
 <br>
 <br>
-</span>
-
-
-
-<!-- friends -->
-<a id="author"></a>
-<div class="speaker">
-<span class="contentHeader">😇&nbsp; Supporters:</span> 
-</div>
 <br>
-<span style="font-size:20px;">
-These book(s) are supported by our <a class="inlineLink" href="https://www.patreon.com/bePatron?c=701171">patreon</a> members and the following companies:
-</span>
-<section class="productIcons" style="background-color: white; padding-top: 25px; padding-bottom:50px;">
+
+<nav role="footer">
+
+<ul>
+
+    <li class="copyright" style="margin-left: 5px;"><a class="inlineLink" href="https://objective-see.org/" target="_blank">The Objective-See Foundation</a>
+    </li>    
     
-    <span class="wrapper" style="text-align: left">
-    <b>Platinum 💎</b>
-    </span>
-    <br>
-    <center>
-    <div class="download-link" style="padding: 10px;">
-        <a href="https://www.kandji.io" target="_blank">
-            <img src="images/friends/kandji.png" height="80px;">
-        <div class="logo-title">Next-generation Apple enterprise management.</div>
-        </a>
-    </div>
-    </center>
-    <br>
-    <br>
+    <li>
+        <a href="https://twitter.com/objective_see" class="menubutton icon" style="padding-top:10px;" target="_blank"><span class="ss-icon">&#xF611;</span></a>
+    </li>
 
-    <br>
-    <span class="wrapper" style="text-align: left">
-    <b>Gold 🥇</b>
-    </span>
-    <br>
-    <center>
+</ul>
 
-    <div class="download-link" style="padding: 10px;">
-        <a href="https://www.jamf.com?utm_source=objective-see&utm_medium=sponsored-link&utm_campaign=next-gen-security&utm_content=2021-02-05_protect" target="_blank">
-            <img src="images/friends/jamf.png" height="50px">
-            <div class="logo-title">The standard in Apple enterprise management.</div>
-        </a>
-    </div>
-     <div class="download-link" style="padding: 10px; padding-right: 20px;">
-        <a href="https://www.paloaltonetworks.com" target="_blank">
-            <img src="images/friends/panw.png" height="50px">
-        <div class="logo-title">Next-gen solutions for today's challenges.</div>
-        </a>
-    </div>
-    <br>
-    <br>
-
-    <div class="download-link" style="padding: 10px;">
-        <a href="https://moonlock.com" target="_blank">
-            <img src="https://objective-see.org/images/friends/MoonlockLogoMacPaw.png" height="50px">
-        <div class="logo-title">Cybersecurity tech for humans.</div>
-        </a>
-    </div>
-
-     <div class="download-link" style="padding: 10px;">
-        <a href="https://1password.com/product/xam" target="_blank">
-            <img src="https://objective-see.org/images/friends/1Password.png" height="50px">
-        <div class="logo-title">Secure every sign-in for every app on every device.</div>
-        </a>
-    </div>
-
-   
-    </center>
-    <br>
-    <br>
-    <br>
-    <span class="wrapper" style="text-align: left">
-    <b>Silver 🥈</b>
-    </span>
-    <br>
-    <center>
-    <div class="download-link" style="padding: 10px;">
-        <a href="https://www.malwarebytes.com" target="_blank">
-            <img src="images/friends/malwarebytes.png" height="45px">
-        <div class="logo-title">Fix today. Protect forever.</div>
-        </a>
-    </div>
-
-    <div class="download-link" style="padding: 10px;">
-        <a href="https://www.iverify.io" target="_blank">
-            <img src="images/friends/iVerify.png" height="45px">
-        <div class="logo-title">Dive Deeper Into Mobile Security.</div>
-        </a>
-    </div>
-
-    <br>
-    <div class="download-link" style="padding: 10px;">
-        <a href="https://hubs.ly/Q02BYLy80" target="_blank">
-            <img src="https://objective-see.org/images/friends/huntress.png" height="55px">
-        <div class="logo-title">Managed cybersecurity platform for SMBs and IT.</div>
-        </a>
-    </div>
-
-    <br>
-    </center>
-    
-    <span class="wrapper" style="text-align: left">
-        <b>Bronze 🥉</b>
-    </span>
-    <br>
-    <center>
-    <div class="logo-link">
-            <a href="https://www.smugmug.com/" target="_blank">
-                <img src="images/friends/smugmug.png" height="50px;">
-                <br>
-                <div class="logo-title">SmugMug</div>
-            </a>
-        </div>
-
-        <div class="logo-link">
-            <a href="https://guardianapp.com/" target="_blank">
-                <img src="images/friends/guardian.png" height="48px;">
-                <br>
-                <div class="logo-title">Guardian Firewall</div>
-            </a>
-        </div>
-
-        <div class="logo-link" style="">
-            <a href="https://www.haloprivacy.com/" target="_blank">
-                <img src="images/friends/haloprivacy.png" width="100px;">
-                <br>
-                <div class="logo-title">Halo Privacy</div>
-            </a>
-        </div>
-
-        <div class="logo-link" style="">
-            <a href="https://themittenmac.com" target="_blank">
-                <img src="images/friends/mittenMac.png" height="48px;">
-                <br>
-                <div class="logo-title">The Mitten Mac</div>
-            </a>
-        </div>
-
-        </center>
-    <br>
-    <br>
-    </span>
-    
-    <br>
-    <div align="center" style="font-size: 20px;">
-        <a href="https://objective-see.com/friends.html" class="inlineLink">Become a Friend »</a>
-    </div>
-    <br>
-    <br>
-</section>
-</div>  
-
-<!-- footer -->
-<div id="footer"></div>
+</nav>
 
 </body>
 </html>

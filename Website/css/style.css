@@ -17,9 +17,6 @@ body
 	/*webkit specific text adjustments */
 	-webkit-text-size-adjust: none;
 	-webkit-font-smoothing: antialiased; 
-
-	/* initially */
-	visibility: hidden;
 }
 
 
@@ -118,7 +115,7 @@ h2.download-title
 {
 	font-weight: 800;
 	font-family: 'Exo 2', sans-serif;
-	font-size: 1.0rem;
+	font-size: 2.0rem;
 }
 
 h3
@@ -1060,4 +1057,110 @@ border-left: 1px gray solid;
   0% { transform: scale(1); }
   50% { transform: scale(1.3); }
   100% { transform: scale(1); }
+}
+
+.flex-container {
+		padding-top: 25px;
+    display: flex; /* Enables Flexbox */
+    justify-content: space-between; /* Space between columns */
+    align-items: flex-start; /* Align items to the top */
+    width: 90%; /* Makes it responsive with a relative width */
+    max-width: 1400px; /* Restricts the maximum width */
+    margin: 0 auto; /* Centers the container horizontally */
+    gap: 20px; /* Adds spacing between columns */
+    box-sizing: border-box; /* Includes padding and border in width */
+}
+
+.column {
+    flex: 1 1 45%; /* Ensure columns are approximately 50% wide */
+    max-width: 45%; /* Prevent columns from exceeding half the container width */
+    box-sizing: border-box; /* Include padding and border in width */
+    text-align: center; /* Center-align text inside the column */
+}
+
+.column img {
+    width: auto; /* Set desired size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 2%; /* Optional for rounded corners */
+    margin-top: 10px; /* Optional spacing */
+}
+
+.book-description {
+    font-family: 'Times New Roman', serif; /* Ensure fallback to serif fonts */
+    font-size: 1.2em;
+    line-height: 2.0; /* Improve readability with spacing between lines */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px; /* Space above buttons */
+}
+
+
+.button-container .button-2 {
+    padding: 10px 20px; /* Ensure buttons are visually balanced */
+    font-size: 14px; /* Set a uniform font size */
+    cursor: pointer; /* Add pointer cursor for buttons */
+}
+
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Remove padding around the section */
+    width: 90%; /* Makes it responsive with a relative width */
+    max-width: 1400px; /* Restricts the maximum width */
+    margin: 0 auto; /* Center the section horizontally */
+    background-color: #999999; /* Background color similar to the example */
+    color: white; /* Text color */
+}
+
+.about-container {
+    display: flex;
+    max-width: 1400px;
+    width: 100%;
+    align-items: stretch; /* Ensure both columns stretch to fill their container */
+    gap: 0; /* Remove gap between columns */
+}
+
+.about-text {
+    flex: 1;
+    display: flex; /* Enable Flexbox for the container */
+    flex-direction: column; /* Align text vertically */
+    justify-content: center; /* Center text vertically */
+    align-items: center; /* Center text horizontally */
+    text-align: center; /* Align text content horizontally (text-align handles inline text) */
+    font-family: 'Times New Roman', serif;
+    margin: 0; /* Remove any margin */
+    padding: 20px; /* Optional padding for spacing */
+}
+
+.about-text h2 {
+    font-weight: 800;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 2.0rem;
+    margin: 0; /* Remove margin if unnecessary */
+    padding-bottom: 40px;
+}
+
+.about-text p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin: 0 0 30px 0; /* Keep bottom margin for spacing between paragraphs */
+    color: white; /
+}
+
+.about-image {
+    flex: 1;
+    margin: 0; /* Remove margin around the image container */
+    padding: 0; /* Remove padding */
+}
+
+.about-image img {
+    width: 100%; /* Ensure the image fills the column width */
+    object-fit: cover; /* Crops the image to ensure it fills the container */
+    border-radius: 0; /* Remove rounded corners, if necessary */
+    display: block; /* Ensures no extra space below the image */
 }
