@@ -880,6 +880,15 @@ figcaption.pageHeader
 	color: #505050;
 }
 
+.pageHeader
+{
+	padding-left: 7px;
+	font-family: 'Exo 2'; 
+	font-weight: 600; 
+	font-size: 40px; 
+	color: #505050;
+}
+
 .pageSubHeader
 {
 	color: #798992; 

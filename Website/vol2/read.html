@@ -1,0 +1,599 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#">
+<head>
+
+<meta charset="UTF-8">
+<title>TAOMM: Volume II: Detection</title>
+<link rel="shortcut icon" href="images/logo.ico">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+<script src="/social/ss-social.js"></script>
+<link href="/social/ss-social.css" rel="stylesheet" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@objective_see" />
+<meta name="twitter:title" content="The Art of Mac Malware" />
+<meta name="twitter:description" content="Volume II: Detection" />
+<meta name="twitter:image" content="https://taomm.org/images/cover_2.webp" />
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="The Art of Mac Malware"/>
+<meta property="og:url" content="https://taomm.org/vol2/read.html">
+<meta property="og:image" content="https://taomm.org/images/cover_2.webp">
+<meta property="og:description" content="Volume II: Detection"/>
+
+</head>
+
+<body>
+
+<!-- Header/Menu -->
+<nav role="main">
+<ul>
+    <!-- logo, left -->
+    <li>
+    <div class="logo">
+        <a href="/index.html">
+            <div class="title">
+                The Art of Mac Malware
+                <br>
+                <div style="font-size:15px; font-family:Courier New; padding-left: 20px;">
+                    Books about Mac Malware, by P. Wardle
+                </div>
+            </div>
+        </a>
+    </div>
+    </li>
+
+    <!-- support us -->
+    <li>
+        <form action="support.html" style="display: inline;">
+            <button class="menuicon button-4" role="button">Support!</button>
+        </form>
+    </li>
+
+</ul>
+</nav>
+    
+<div class="pageContent">
+    
+    <div class="pageHeader" style="padding-top:10px;">
+        Volume II: Detection
+    </div>
+    
+
+    <span class="wrapper" style="text-align: left">
+
+    <br>
+    <span style="font-size:20px;">
+    Detecting malware is as vital as analyzing it. This volume explores programmatic approaches to detecting malicious code via behavioral heuristics, equipping you to develop tools and techniques to neutralize macOS threats.
+    <br><br>
+    <br><br>
+    </span>
+
+
+    <span class="title">Front Matter</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/FrontMatter.pdf">
+                <img src="/images/cover_2.webp" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%;">
+            </a>
+            </center>
+            
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            The front matter of the book includes a table of contents, acknowledgements, introduction and a forward (by the noted researcher/author Maria Markstedter).
+            <br><br>
+            <a class="inlineLink" href="pdfs/FrontMatter.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+
+    <span class="title">Part I: Data Collection</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/Part I.pdf">
+                <img src="/images/vol2/p1.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            Malware detection begins with data collection. All malicious code performs actions on an infected system that deviate from the norm. Therefore, by collecting sufficient data, you can uncover any infection.
+            <br><br>
+            In the first part of this book, we'll examine running processes, parse binaries, extract and examine code signing information, and much more!
+            <br><br>
+            <a class="inlineLink" href="pdfs/Part I.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 1: Examining Processes</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 1 Examining Processes.pdf">
+                <img src="/images/vol2/ch1.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            The overwhelming majority of Mac malware executes as stand-alone processes continuously running on infected systems. As a result, if you generate a list of running processes, it's more than likely to include any malware present on the system. Thus, when you're trying to programmatically detect macOS malware, you should start by examining processes.
+            <br>
+            <br>
+            In this chapter, we'll first discuss various methods of enumerating running processes. Then we'll programmatically extract various information and metadata about each running process to uncover anomalies commonly associated with malware.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 1 Examining Processes.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 2: Parsing Binaries</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 2 Parsing Binaries.pdf">
+                <img src="/images/vol2/ch2.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            In the previous chapter, we enumerated running processes and extracted information that could help us heuristically detect malware. However, we didn't cover how to examine the actual binary that backed each process. 
+            <br>
+            <br>
+            This chapter describes how to programmatically parse and analyze universal and Mach-O, the native executable binary file format of macOS.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 2 Parsing Binaries.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 3: Code Signing</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 3 Code Signing.pdf">
+                <img src="/images/vol2/ch3.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            In this chapter, we'll write code that can extract code signing information from distribution file formats that malware often abuses, such as disk images and packages. Then we'll turn our attention to the code signing information of on-disk Mach-O binaries and running processes.
+            <br><br>
+            For each, I'll show you how to programmatically validate the code signing information and detect any revocations.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 3 Code Signing.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <span class="title">Chapter 4: Network State and Statistics</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 4 Network State and Statistics.pdf">
+                <img src="/images/vol2/ch4.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            Most Mac malware specimens make extensive use of the network for tasks such as exfiltrating data, downloading additional payloads, or communicating with command-and-control servers. If you can observe these unauthorized network events, you can turn them into a powerful detection heuristic.
+            <br><br>
+            In this chapter, I'll show you exactly how to create a snapshot of network activity, such as established connections and listening sockets, and tie each event to the process responsible for it.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 4 Network State and Statistics.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <span class="title">Chapter 5: Persistence</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 5 Persistence.pdf">
+                <img src="/images/vol2/ch5.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            Arguably one of the best ways to detect malicious threats on macOS is to focus on persistence. Here, persistence refers to the means by which software, including malware, installs itself on a system to ensure it will automatically re-execute upon startup, user login, or some other deterministic event. Otherwise, it might never run again if the user logs out or the system reboots.
+            <br>
+            <br>
+            In this chapter, we focus on enumerating persistent items, that will include persistently installed malware!
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 5 Persistence.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+
+    <span class="title">Part II: System Monitoring</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/Part II.pdf">
+                <img src="/images/vol2/p2.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+           <br>
+           So far, I've covered programmatic methods of collecting data to generate snapshots of the system's state, then analyzed these snapshots to uncover symptoms of malicious activity. This approach limits the analysis to single points in time, however. 
+           <br><br>
+           In Part II, I'll explain how to monitor the system log, as well as network, filesystem, and process events, in real time.
+           <br><br>
+           <a class="inlineLink" href="pdfs/Part II.pdf">Read Chapter »</a>
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 6: Log Monitoring</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 6 Log Monitoring.pdf">
+                <img src="/images/vol2/ch6.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            If you've spent time poking around macOS, you may have encountered the system's unified logging mechanism, a resource that can help you understand macOS internals and, as you'll soon see, uncover malware. 
+            <br>
+            <br>
+            In this chapter, I'll start by highlighting the various kinds of information that can be extracted from these logs to detect malicious activity. We'll then reverse engineer the macOS log utility and one of its core private frameworks so we can programmatically ingest real-time information directly and efficiently from the logging subsystem. 
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 6 Log Monitoring.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 7: Dynamic Analysis Tools</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 7 Network Monitoring.pdf">
+                <img src="/images/vol2/ch7.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            In this chapter, I'll describe various approaches for monitoring network activity on macOS systems. I'll start simple, by showing you how to regularly schedule network snapshots to obtain a near-continuous view of a host's network activity.
+            <br>
+            <br>
+            Next, you'll dive deep into Apple's NetworkExtension framework and APIs, which provide a means of customizing the operating system's core networking features and building comprehensive network monitoring tools. 
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 7 Network Monitoring.pdf">Read Chapter »</a>
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 8: Endpoint Security</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 8 Endpoint Security.pdf">
+                <img src="/images/vol2/ch8.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            Introduced in macOS 10.15 (Catalina), Endpoint Security is the first Apple framework designed specifically to help third-party developers build advanced user-mode security tools, such as those focused on detecting malware. 
+             <br><br>
+             In this chapter, I'll provide an overview of the framework and discuss how to use its APIs to perform actions such as monitoring file and process events. 
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 8 Endpoint Security.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+
+    <br>
+    <br>
+    <span class="title">Chapter 9: Muting and Authorization Events</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 9 Muting and Authorization Events.pdf">
+                <img src="/images/vol2/ch9.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            In the previous chapter, I introduced Apple's Endpoint Security and its notification events.
+            <br>
+            <br>
+            In this chapter, I move into more advanced topics, such as muting, mute inversion, and authorization events.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 9 Muting and Authorization Events.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <span class="title">Part III: Tool Development</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/Part III.pdf">
+                <img src="/images/vol2/p3.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            It's time to pull everything together. 
+            <br><br>
+            In Part III, I'll cover the design and internals of Objective-See tools that provide powerful heuristic-based malware detection capabilities, based on the approaches we've discussed in part I &amp; II of this book.
+            <br><br>
+            <a class="inlineLink" href="pdfs/Part III.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 10: Persistence Enumerator</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 10 Persistence Enumerator.pdf">
+                <img src="/images/vol2/ch10.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            KnockKnock is simple, albeit powerful tool that tells you who is there! 
+            <br>
+            <br>
+            In this chapter, I'll walk through KnockKnock’s design and implementation to give you an in-depth look at the tool and expand your understanding of the persistence methods that Mac malware often does (or could) abuse.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 10 Persistence Enumerator.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 11: Persistence Monitor</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 11 Persistence Monitor.pdf">
+                <img src="/images/vol2/ch11.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            While KnockKnock, covered in the previous chapter, provides a powerful detection capability, it doesn't protect the system in real time. 
+            <br>
+            <br>
+            To complement it, I created BlockBlock, which monitors the most important persistence locations enumerated by KnockKnock, alerts the user whenever a new item appears, and gives them the ability to block the activity.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 11 Persistence Monitor.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 12: Mic and Webcam Monitor</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 12 Mic and Webcam Monitor.pdf">
+                <img src="/images/vol2/ch12.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+             OverSight, is a tool that monitors a Mac's built-in mic and webcam, as well as any external connected audio and video devices, and alerts the user about any unauthorized access.
+             <br>
+             <br> 
+             In this chapter, I'll explain how OverSight monitors these devices. I'll also demonstrate how this tool ingests system log messages filtered via custom predicates to identify the process responsible for the device access.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 12 Mic and Webcam Monitor.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 13: DNS Monitor</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 13 DNS Monitor.pdf">
+                <img src="/images/vol2/ch13.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            Malware often communicates with remote endpoints, whose address is resolved via DNS.
+            <br>
+            <br>
+            In this chapter, I'll focus on the practicalities of building a deployable host-based network monitor capable of proxying and blocking DNS traffic from unrecognized processes or destined for untrusted domains.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 13 DNS Monitor.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <span class="title">Chapter 14: Case Studies</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/CH 14 Case Studies.pdf">
+                <img src="/images/vol2/ch14.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            In this final chapter, I showcase a handful of case studies, ranging from good apps misbehaving to sophisticated nation-state attacks.
+            <br>
+            <br>
+            In each case, I'll demonstrate exactly how the heuristic-based detection approaches discussed throughout this book succeed at uncovering the threat, even without prior knowledge of it.
+            <br><br>
+            <a class="inlineLink" href="pdfs/CH 14 Case Studies.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <span class="title">End Matter</span>
+    <ul class="flex-container" style="padding-top: 10px;">
+        <li class="flex-icon">
+            <div class="download-link" style="min-width: 150px; min-height: 150px;">
+            <center>
+            <a href="pdfs/EndMatter.pdf">
+                <img src="/images/vol2/end.webp" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
+            </a>
+            </center>
+        </div>
+
+        </li>
+        <li class="flex-content">
+            <br>
+            The book's end matters contains its index, and more.
+            <br><br>
+            <a class="inlineLink" href="pdfs/EndMatter.pdf">Read Chapter »</a>
+        
+        </li>
+    </ul>
+
+  
+
+</span>
+
+</div>	
+<br>
+<br>
+<br>
+<br>
+
+<!-- Footer -->
+<nav role="footer">
+    <ul>
+        <li class="copyright" style="margin-left: 5px;">
+            An <a class="inlineLink" href="https://objective-see.org/" target="_blank">Objective-See Foundation</a> initiative
+        </li>    
+        
+        <li>
+            <a href="https://twitter.com/objective_see" class="menubutton icon" style="padding-top:10px;" target="_blank"><span class="ss-icon">&#xF611;</span></a>
+        </li>
+    </ul>
+</nav>
+
+</body>
+</html>

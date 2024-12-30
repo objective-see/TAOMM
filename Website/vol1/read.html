@@ -5,30 +5,23 @@
 <title>TAOMM: Volume I: Analysis</title>
 <link rel="shortcut icon" href="images/logo.ico">
 
-<meta name="google-site-verification" content="EFHbaJUZa6mOaOGQbFJ2xa32xu_SVhTYqvm4JHfA5dg" />
-
-<script src="js/analytics.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<script> 
-    $(function(){
-      $("#header").load("/header.html"); 
-      $("#footer").load("/footer.html"); 
-    });
-</script> 
-
 <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+<script src="/social/ss-social.js"></script>
+<link href="/social/ss-social.css" rel="stylesheet" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@objective_see" />
 <meta name="twitter:title" content="The Art of Mac Malware" />
 <meta name="twitter:description" content="Volume I: Analysis" />
-<meta name="twitter:image" content="https://taomm.org/images/cover.png" />
+<meta name="twitter:image" content="https://taomm.org/images/cover_1.webp" />
 
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="The Art of Mac Malware"/>
 <meta property="og:url" content="https://taomm.org/vol1/read.html">
-<meta property="og:image" content="https://taomm.org/images/cover.png">
+<meta property="og:image" content="https://taomm.org/images/cover_1.webp">
 <meta property="og:description" content="Volume I: Analysis"/>
 
 </head>
@@ -36,24 +29,70 @@
 <body>
 
 <!-- Header/Menu -->
-<div id="header"></div>
+<nav role="main">
+<ul>
+    <!-- logo, left -->
+    <li>
+    <div class="logo">
+        <a href="/index.html">
+            <div class="title">
+                The Art of Mac Malware
+                <br>
+                <div style="font-size:15px; font-family:Courier New; padding-left: 20px;">
+                    Books about Mac Malware, by P. Wardle
+                </div>
+            </div>
+        </a>
+    </div>
+    </li>
+
+    <!-- support us -->
+    <li>
+        <form action="support.html" style="display: inline;">
+            <button class="menuicon button-4" role="button">Support!</button>
+        </form>
+    </li>
+
+    <!--
+
+    <li>
+        <a href="index.html#author" class="menuicon">
+        <figure class="item">
+            <center>
+            <img src="images/authorIcon.png" class="item"/>
+            </center>
+            <figcaption class="item">Author</figcaption>
+        </figure>
+        </a>
+    </li>
+
+    <li>
+        <a href="index.html#books" class="menuicon">
+        <figure class="item">
+            <center>
+                <img src="images/bookIcon.png" class="item" />
+            </center>
+            <figcaption class="item">Books</figcaption>
+        </figure>
+        </a>
+    </li>
+
+    -->
+</ul>
+</nav>
     
 <div class="pageContent">
 
-    <figure class="pageHeader">
-    <img src="/images/bookIcon_2x.png" style="height:64px;" />
-        <br>
-        <figcaption class="pageHeader">
-        <span style="">Volume I: Analysis</span>
-        <div class="pageSubHeader"></div>
-    </figcaption>
-    </figure>
+    <div class="pageHeader" style="padding-top:10px;">
+        Volume I: Analysis
+    </div>
+    
 
     <span class="wrapper" style="text-align: left">
 
     <br>
     <span style="font-size:20px;">
-    Starting with introductory topics such as infection vectors, persistence mechanisms, and payloads, this content-packed volume also covers in detail, the tools &amp; techniques needed to comprehensively analyze malware targeting Apple's desktop OS.
+    Defenders must understand how malware works to counter threats targeting Apple products. This volume explores infection methods, persistence mechanisms, and reverse-engineering techniques to analyze malicious code.
     <br><br>
     <br><br>
     </span>
@@ -66,7 +105,7 @@
             <div class="download-link" style="min-width: 150px; min-height: 150px;">
             <center>
             <a href="pdfs/FrontMatter.pdf">
-                <img src="/images/cover.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%;">
+                <img src="/images/cover_1.webp" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%;">
             </a>
             </center>
             
@@ -198,7 +237,7 @@
         <li class="flex-icon">
             <div class="download-link" style="min-width: 150px; min-height: 150px;">
             <center>
-            <a href="#">
+            <a href="pdfs/Part II.pdf">
                 <img src="/images/vol1/p2.png" height="130px;" border="0" style="margin-top: 10px; border-radius: 5%; border: 1px solid #E8E8E8;">
             </a>
             </center>
@@ -486,8 +525,18 @@ This chapter begins our comprehensive analysis of the malware by detail- ing its
 <br>
 <br>
 
-<!-- footer -->
-<div id="footer"></div>
+<!-- Footer -->
+<nav role="footer">
+    <ul>
+        <li class="copyright" style="margin-left: 5px;">
+            An <a class="inlineLink" href="https://objective-see.org/" target="_blank">Objective-See Foundation</a> initiative
+        </li>    
+        
+        <li>
+            <a href="https://twitter.com/objective_see" class="menubutton icon" style="padding-top:10px;" target="_blank"><span class="ss-icon">&#xF611;</span></a>
+        </li>
+    </ul>
+</nav>
 
 </body>
 </html>
