@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #define LOGGING_SUPPORT @"/System/Library/PrivateFrameworks/LoggingSupport.framework"
 
-// public OSLogEvent object
+//OSLogEvent
 @interface OSLogEvent : NSObject
 @property NSString *process;
 @property NSNumber* processIdentifier;
@@ -23,43 +23,53 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *subsystem;
 @property NSDate *date;
 @property NSString *composedMessage;
-
 @end
 
-//private log stream object
+//OSLogEventLiveStream
 @interface OSLogEventLiveStream : NSObject
-
-- (void)activate;
-- (void)invalidate;
-- (void)setFilterPredicate:(NSPredicate*)predicate;
-- (void)setDroppedEventHandler:(void(^)(id))callback;
-- (void)setInvalidationHandler:(void(^)(int, id))callback;
-- (void)setEventHandler:(void(^)(id))callback;
-
+-(void)activate;
+-(void)invalidate;
+-(void)setFilterPredicate:(NSPredicate*)predicate;
+-(void)setDroppedEventHandler:(void(^)(id))callback;
+-(void)setInvalidationHandler:(void(^)(int, id))callback;
+-(void)setEventHandler:(void(^)(id))callback;
 @property(nonatomic) unsigned long long flags;
+@end
+
+//OSLogEventSource
+@interface OSLogEventSource : NSObject
 
 @end
 
-//private log event object
-//implementation in framework
-@interface OSLogEventProxy : NSObject
+//OSLogEventStream
+@interface OSLogEventStream : NSObject
+-(id)initWithSource:(OSLogEventSource*)source;
+-(void)setFilterPredicate:(NSPredicate*)predicate;
+-(void)setInvalidationHandler:(void(^)(int, id))callback;
+-(void)setEventHandler:(void(^)(id))callback;
+-(void)activateStreamFromDate:(NSDate*)date toDate:(NSDate*)date;
+@property(nonatomic) unsigned long long flags;
+@end
 
+//OSLogEventStore
+@interface OSLogEventStore : NSObject
++(id)localStore;
+-(OSLogEventSource*)prepareWithCompletionHandler:(void (^)(OSLogEventSource *source, NSError *error))completionHandler;
+@property(nonatomic) id localStore;
+@end
+
+//OSLogEventProxy
+@interface OSLogEventProxy : NSObject
+@property(readonly, nonatomic) NSDate *date;
 @property(readonly, nonatomic) NSString *process;
 @property(readonly, nonatomic) int processIdentifier;
 @property(readonly, nonatomic) NSString *processImagePath;
-
 @property(readonly, nonatomic) NSString *sender;
 @property(readonly, nonatomic) NSString *senderImagePath;
-
 @property(readonly, nonatomic) NSString *category;
 @property(readonly, nonatomic) NSString *subsystem;
-
-@property(readonly, nonatomic) NSDate *date;
-
 @property(readonly, nonatomic) NSString *composedMessage;
-
 @end
-
 
 //(our) log monitor object
 @interface LogMonitor : NSObject
@@ -67,13 +77,19 @@ NS_ASSUME_NONNULL_BEGIN
 //instance of live stream
 @property(nonatomic, retain, nullable)OSLogEventLiveStream* liveStream;
 
+//instance of (query) stream
+@property(nonatomic, retain, nullable)OSLogEventStream* quertyStream;
+
 /* METHODS */
 
-//start
+//start (stream)
 -(BOOL)start:(NSPredicate*)predicate level:(NSUInteger)level eventHandler:(void(^)(OSLogEventProxy*))eventHandler;
 
-//stop
+//stop (stream)
 -(void)stop;
+
+//start query
+-(BOOL)startQuery:(NSPredicate*)predicate level:(NSUInteger)level eventHandler:(void(^)(OSLogEventProxy*))eventHandler;
 
 @end
 

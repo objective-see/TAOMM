@@ -111,14 +111,15 @@
         goto bail;
     }
     
-    //
+    //sanity check
+    // obj responds to `setFlags:`?
     if(YES != [self.liveStream respondsToSelector:NSSelectorFromString(@"setFlags:")])
     {
         //bail
         goto bail;
     }
 
-    //set debug & info flags
+    //set log level (debug, etc)
     [self.liveStream setFlags:level];
     
     //activate
@@ -155,6 +156,144 @@ bail:
 bail:
 
     return;
+}
+
+//start log query (against stored msgs)
+// pass in predicate to match, log level, and callback for event handler
+-(BOOL)startQuery:(NSPredicate*)predicate level:(NSUInteger)level eventHandler:(void(^)(OSLogEventProxy*))eventHandler
+{
+    //flag
+    BOOL started = NO;
+    
+    //event strore class
+    Class EventStore = nil;
+    
+    //local store
+    OSLogEventStore* localStore = nil;
+    
+    //load 'LoggingSupport.framework'
+    [[NSBundle bundleWithPath:LOGGING_SUPPORT] load];
+
+    
+    //get 'OSLogEventStore' class
+    if(nil == (EventStore = NSClassFromString(@"OSLogEventStore")))
+    {
+        //bail
+        goto bail;
+    }
+    
+    //sanity check
+    // obj responds to `localStore`?
+    if(YES != [EventStore respondsToSelector:NSSelectorFromString(@"localStore")])
+    {
+        //bail
+        goto bail;
+    }
+    
+    //get local store
+    if(nil == (localStore = [EventStore localStore]))
+    {
+        //bail
+        goto bail;
+    }
+    
+    //sanity check
+    // obj responds to `prepareWithCompletionHandler:`?
+    if(YES != [localStore respondsToSelector:NSSelectorFromString(@"prepareWithCompletionHandler:")])
+    {
+        //bail
+        goto bail;
+    }
+
+    //prepare local store
+    // in completion handler, we setup/activate (query) stream
+    { [localStore prepareWithCompletionHandler:^(OSLogEventSource *source, NSError *error) {
+        
+        //event stream class
+        Class EventStream = nil;
+        
+        //get 'OSLogEventStream' class
+        if(nil == (EventStream = NSClassFromString(@"OSLogEventStream")))
+        {
+            return;
+        }
+    
+        //sanity check
+        // obj responds to `initWithSource:`?
+        if(YES != [EventStream instancesRespondToSelector:NSSelectorFromString(@"initWithSource:")])
+        {
+            return;
+        }
+        
+        //init query stream
+        self.quertyStream = [[EventStream alloc] initWithSource:source];
+        if(nil == self.quertyStream)
+        {
+            //bail
+            return;
+        }
+        
+        //sanity check
+        // obj responds to `setFlags:`?
+        if(YES != [self.quertyStream respondsToSelector:NSSelectorFromString(@"setFlags:")])
+        {
+            return;
+        }
+        
+        //set log level (debug, etc)
+        [self.quertyStream setFlags:level];
+        
+        //sanity check
+        // obj responds to `setFilterPredicate:`?
+        if(YES != [self.quertyStream respondsToSelector:NSSelectorFromString(@"setFilterPredicate:")])
+        {
+            return;
+        }
+        
+        //set predicate
+        [self.quertyStream setFilterPredicate:predicate];
+        
+        //sanity check
+        // obj responds to `setFilterPredicate:`?
+        if(YES != [self.quertyStream respondsToSelector:NSSelectorFromString(@"setInvalidationHandler:")])
+        {
+            return;
+        }
+        
+        //set invalidation handler
+        [self.quertyStream setInvalidationHandler:^void (int reason, id streamPosition) {
+            ;
+        }];
+        
+        //sanity check
+        // obj responds to `setEventHandler:`?
+        if(YES != [self.quertyStream respondsToSelector:NSSelectorFromString(@"setEventHandler:")])
+        {
+            return;
+        }
+        
+        //set event handler
+        // invoked for each (stored) log message that matches predicate
+        [self.quertyStream setEventHandler:eventHandler];
+        
+        //sanity check
+        // obj responds to `activateStreamFromDate:toDate`?
+        if(YES != [self.quertyStream respondsToSelector:NSSelectorFromString(@"activateStreamFromDate:toDate:")])
+        {
+            return;
+        }
+        
+        //activate
+        [self.quertyStream activateStreamFromDate:[NSDate distantPast] toDate:[NSDate distantFuture]];
+            
+    }]; }
+    
+    //happy
+    started = YES;
+
+bail:
+    
+    return started;
 }
 
 @end

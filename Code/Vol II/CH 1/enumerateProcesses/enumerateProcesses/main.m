@@ -9,7 +9,6 @@
 #import <libproc.h>
 #import <sys/sysctl.h>
 #import <AppKit/AppKit.h>
-#import <mach/mach_time.h>
 #import <Foundation/Foundation.h>
 
 //architectures
@@ -88,7 +87,8 @@ NSData* getAuditToken(pid_t pid)
 {
     NSData* auditToken = nil;
     
-    task_name_t task = {0};
+    task_name_t task = MACH_PORT_NULL;
+    
     audit_token_t token = {0};
     kern_return_t status = 0;
     mach_msg_type_number_t info_size = TASK_AUDIT_TOKEN_COUNT;
@@ -102,6 +102,7 @@ NSData* getAuditToken(pid_t pid)
         goto bail;
     }
     
+    //get task info
     status = task_info(task, TASK_AUDIT_TOKEN, (integer_t *)&token, &info_size);
     if(KERN_SUCCESS != status)
     {
@@ -113,6 +114,12 @@ NSData* getAuditToken(pid_t pid)
     auditToken = [NSData dataWithBytes:&token length:sizeof(audit_token_t)];
     
 bail:
+    
+    //deallocate task
+    if(MACH_PORT_NULL != task)
+    {
+        mach_port_deallocate(mach_task_self(), task);
+    }
     
     return auditToken;
 }
@@ -134,16 +141,16 @@ pid_t getParent(pid_t pid)
     int sysctlResult = -1;
     
     //init mib
-    int mib[0x4] = {CTL_KERN, KERN_PROC, KERN_PROC_PID, pid};
+    int mib[] = {CTL_KERN, KERN_PROC, KERN_PROC_PID, pid};
     
     //clear buffer
     memset(&processStruct, 0x0, procBufferSize);
     
     //make syscall
-    sysctlResult = sysctl(mib, 0x4, &processStruct, &procBufferSize, NULL, 0);
+    sysctlResult = sysctl(mib, sizeof(mib) / sizeof(mib[0]), &processStruct, &procBufferSize, NULL, 0);
     
     //check if got ppid
-    if( (noErr == sysctlResult) &&
+    if( (0 == sysctlResult) &&
         (0 != procBufferSize) )
     {
         //save ppid
@@ -153,11 +160,12 @@ pid_t getParent(pid_t pid)
     return parent;
 }
 
+//get responsible pid via 'responsibility_get_pid_responsible_for_pid'
 pid_t getResponsibleParent(pid_t child)
 {
     pid_t parent = 0;
     
-    pid_t (*getRPID)(pid_t pid) = dlsym(RTLD_NEXT, "responsibility_get_pid_responsible_for_pid");
+    pid_t (*getRPID)(pid_t pid) = dlsym(RTLD_DEFAULT, "responsibility_get_pid_responsible_for_pid");
     if(NULL != getRPID)
     {
         parent = getRPID(child);

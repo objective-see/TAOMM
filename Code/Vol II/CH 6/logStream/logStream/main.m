@@ -71,36 +71,43 @@ int main(int argc, const char * argv[]) {
             @try {
                 predicate = [NSPredicate predicateWithFormat:NSProcessInfo.processInfo.arguments.lastObject];
             } @catch (NSException *exception) {
-                ;
+                printf("ERROR: predicate exception: %s\n", exception.description.UTF8String);
             }
             
             //sanity check
             if(nil == predicate)
             {
                 //error
-                NSLog(@"ERROR: invalid usage, please specify a valid predicate");
+                printf("ERROR: invalid usage, please specify a valid predicate\n");
                 goto bail;
             }
         }
         //no predicate
         else
         {
-            printf("No predicated specified, will stream all log messages\n");
+            printf("No predicated specified, will match all log messages\n");
             predicate = nil;
         }
         
         LogMonitor* logMonitor = [[LogMonitor alloc] init];
-        
+
+        /*
         [logMonitor start:predicate level:Log_Level_Debug eventHandler:^(OSLogEventProxy* event) {
             
             printf("\n\nNew Log Message:\n");
             inspectObject(event);
-        
             
+        }];
+        */
+        
+        [logMonitor startQuery:predicate level:Log_Level_Debug eventHandler:^(OSLogEventProxy* event) {
+            
+            printf("\n\nExtracted Log Message:\n");
+            inspectObject(event);
+        
         }];
             
         [NSRunLoop.mainRunLoop run];
-        
     }
     
 bail:
